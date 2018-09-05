@@ -1,0 +1,79 @@
+﻿  Validating sources
+  Copying sources remotely to 'bluecrystalp3.bris.ac.uk'
+  Validating architecture
+  Starting remote build
+  Compiling sources:
+  main.cpp
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(96): warning : ignoring #pragma region Average [-Wunknown-pragmas]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(96): warning :  #pragma region Average Calculation
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(109): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(109): warning :  #pragma endregion
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(87): warning : ignoring #pragma region SetInitCond [-Wunknown-pragmas]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(87): warning :  #pragma region SetInitCond
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(124): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(124): warning :  #pragma endregion
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(127): warning : ignoring #pragma region CalcProp [-Wunknown-pragmas]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(127): warning :  #pragma region CalcProp
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(180): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(180): warning :  #pragma endregion
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(183): warning : ignoring #pragma region KeepEnergy [-Wunknown-pragmas]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(183): warning :  #pragma region KeepEnergy
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(191): warning : ignoring #pragma region Select [-Wunknown-pragmas]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(191): warning :  #pragma region Select the direction of the system and the bath
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(223): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(223): warning :  #pragma endregion
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(248): warning : ignoring #pragma region Initial [-Wunknown-pragmas]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(248): warning :  #pragma region Initial Conditions
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(265): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(265): warning :  #pragma endregion
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(325): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(325): warning :  #pragma endregion
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(55): warning : ignoring #pragma region InitializeDynamics [-Wunknown-pragmas]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(55): warning :  #pragma region InitializeDynamics
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(87): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(87): warning :  #pragma endregion
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(92): warning : ignoring #pragma region DynamicStep [-Wunknown-pragmas]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(92): warning :  #pragma region DynamicStep
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(146): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(146): warning :  #pragma endregion
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(87,9): warning : conversion to 'int' from 'long int' may alter its value [-Wconversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(87,9): warning :   j = iy / NDIV;         //Will be in the range 0..NTAB - 1.
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(87,9): warning :          ^
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,19): warning : conversion to 'double' from 'long int' may alter its value [-Wconversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,19): warning :   if ((temp = AM * iy) > RNMX) return RNMX;
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,19): warning :                    ^~
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(22,19): warning : conversion to 'float' alters 'double' constant value [-Wfloat-conversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(22,19): warning :  #define RNMX (1.0 - EPS)
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(22,19): warning :               ~~~~~^~~~~~
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,38): message : in expansion of macro 'RNMX'
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,38): message :   if ((temp = AM * iy) > RNMX) return RNMX;
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,38): message :                                       ^~~~
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(92,14): warning : conversion to 'float' from 'double' may alter its value [-Wfloat-conversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(92,14): warning :   else return temp;
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(92,14): warning :               ^~~~
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(141,23): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(141,23): warning :   for (size_t i = 0; i < nstep; i += 2)
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(141,23): warning :                      ~~^~~~~~~
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(150,20): warning : conversion to '__gnu_cxx::__alloc_traits<std::allocator<double> >::value_type {aka double}' from 'long double' may alter its value [-Wfloat-conversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(150,20): warning :    gasdev[i] = term * cos(2 * M_PIl * u2);
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(150,20): warning :                ~~~~~^~~~~~~~~~~~~~~~~~~~~
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(151,24): warning : conversion to '__gnu_cxx::__alloc_traits<std::allocator<double> >::value_type {aka double}' from 'long double' may alter its value [-Wfloat-conversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(151,24): warning :    gasdev[i + 1] = term * sin(2 * M_PIl * u2);
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(151,24): warning :                    ~~~~~^~~~~~~~~~~~~~~~~~~~~
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(127,26): warning : conversion to 'int' from 'std::vector<double>::size_type {aka long unsigned int}' may alter its value [-Wconversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(127,26): warning :   int size = position.size();
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(127,26): warning :              ~~~~~~~~~~~~~^~
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(132,23): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(132,23): warning :   for (size_t i = 0; i < size; i++)
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(132,23): warning :                      ~~^~~~~~
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(307,12): warning : conversion to 'unsigned int' from 'time_t {aka long int}' may alter its value [-Wconversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(307,12): warning :   srand(time(NULL));
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(307,12): warning :         ~~~~^~~~~~
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(311,48): warning : conversion to 'float' from 'double' may alter its value [-Wfloat-conversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(311,48): warning :   double kinBath = ut.RandomFloat(0., kineticTot);
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(311,48): warning :                                                 ^
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(71,24): warning : conversion to 'int' from 'double' may alter its value [-Wfloat-conversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(71,24): warning :   _numberStep = ut.absol(int(t / _timeStep));
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(71,24): warning :                 ~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+  Linking objects
+  LagrangianDescriptor.vcxproj -> C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\bin\x64\Debug\LagrangianDescriptor.out

@@ -1,0 +1,1 @@
+g++ -o "/panfs/panasas01/math/rg17191/projects/LagrangianDescriptor/bin/x64/Debug/LagrangianDescriptor.out" -Wl,--no-undefined -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack /panfs/panasas01/math/rg17191/projects/LagrangianDescriptor/obj/x64/Debug/main.o
