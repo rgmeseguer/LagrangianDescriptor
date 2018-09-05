@@ -41,15 +41,18 @@ std::vector<double> DOS_G(std::vector<double> coeff, std::vector<double> r)
 
 int main(int argc, char *argv[])
 {
-	/* Check the correct Parameters */
+
+/* Check the correct Parameters */
+#pragma region Program Usage
 	if ((argc != 5))
 	{
 		std::cout << "Program Usage" << std::endl;
 		std::cout << "LagD_Trj.out [tau] [bathMass] [TrjTime > (2xtau+1)] [Trj Number]" << std::endl;
 		return 1;
 	}
+#pragma endregion
 
-
+/* Variables introduced by the User */
 #pragma region Input variables
 	double tau = strtof(argv[1], NULL);								// Tau value
 	double bathMass = strtof(argv[2], NULL);						// Mass of the Bath
@@ -148,12 +151,15 @@ int main(int argc, char *argv[])
 #pragma endregion
 
 
-	/* Open the inital Point */
+/* Open the inital Point */
+#pragma region Open first Point
 	key = Surface.keyWrite(Oscf._position, Oscf.calcMomenta());
-	Surface.addPoint(key);										// Create the new point
-	zeroPoint = key;											// Save the Initial point
+	Surface.addPoint(key);														// Create the new point
+	zeroPoint = key;															// Save the Initial point
 
+#pragma endregion
 
+/* Initate the trayectory */
 	for (size_t j = 0; j < Dynf._numberStep; j++)
 	{
 		if (growingState && j*Dynf._timeStep >= tau) { growingState = false; } // Once we reach time tau points begin to close
@@ -181,7 +187,7 @@ int main(int argc, char *argv[])
 		keyb = Surface.keyWrite(Oscb._position, Oscb.calcMomenta());
 #pragma endregion
 
-		/* And Calculate the value of LD at those points */
+/* And Calculate the value of LD at those points */
 #pragma region Lagrangian Descriptor Calculation
 
 #if KEY_MF==1
@@ -215,20 +221,17 @@ int main(int argc, char *argv[])
 			{
 				Surface.addPoint(keyf);									// Create the new point
 				Surface.openPoint(keyf);								// Open the point
-				//Surface._LDallPoints[keyf].push_back(LDTot_f);		// Add the value to the end of the values it has (if any)
-				//Surface._pointCompletion[keyf] = totLength_f;			// Sets the completion status of the point
 				openPoints_f.push_back(keyf);							// Include the point in the list of open points
 			}
 			/* And if exist but is not open, open the point again */
 			else if (Surface._pointStatComplete[keyf] == true)
 			{
 				Surface.openPoint(keyf);								// Open the point
-				//Surface._LDallPoints[keyf].push_back(LDTot_f);		// Add the value to the end of the values it has (if any)
-				//Surface._pointCompletion[keyf] = totLength_f;			// Sets the completion status of the point
 				openPoints_f.push_back(keyf);							// Include the point in the list of open points
 			}
 
 #pragma endregion
+
 #pragma region Backward Opening Points
 
 			/* If the key does not exist create a new one */
@@ -236,8 +239,6 @@ int main(int argc, char *argv[])
 			{
 				Surface.addPoint(keyb);									// Create the new point
 				Surface.openPoint(keyb);								// Open the point
-				//Surface._LDallPoints[keyb].push_back(LDTot_b);		// Add the value to the end of the values it has (if any)
-				//Surface._pointCompletion[keyb] = totLength_f;			// Sets the completion status of the point
 				openPoints_b.push_back(keyb);							// Include the point in the list of open points
 
 			}
@@ -245,8 +246,6 @@ int main(int argc, char *argv[])
 			else if (Surface._pointStatComplete[keyb] == true)
 			{
 				Surface.openPoint(keyb);								// Open the point
-				//Surface._LDallPoints[keyb].push_back(LDTot_b);		// Add the value to the end of the values it has (if any)
-				//Surface._pointCompletion[keyb] = totLength_f;			// Sets the completion status of the point
 				openPoints_b.push_back(keyb);							// Include the point in the list of open points
 			}
 
@@ -255,8 +254,8 @@ int main(int argc, char *argv[])
 
 #pragma endregion
 
-		/* Once we reach the end of the growing state we can start closing points*/
-#pragma region Finish points
+/* Once we reach the end of the growing state we can start closing points*/
+#pragma region Closing Points
 
 		if (growingState == false)
 		{
@@ -275,6 +274,8 @@ int main(int argc, char *argv[])
 			}
 #pragma endregion
 			/* If the initial point is closed then we have to close the firt point in each list */
+#pragma region Close the Points
+
 			else
 			{
 #pragma region Forward Closing
@@ -284,6 +285,7 @@ int main(int argc, char *argv[])
 
 				bufferCounter = 0;
 				totLength = 0.;
+
 				/* Add the values of the LDList from backwards
 				until we reach 2*tau */
 				while (totLength < (2 * tau))
@@ -291,129 +293,60 @@ int main(int argc, char *argv[])
 					LDTot[0] += LDList[LDList.size() - (1 + bufferCounter)][0];
 					LDTot[1] += LDList[LDList.size() - (1 + bufferCounter)][1];
 
-					bufferCounter += 1;
-					totLength += timeStep;
+					bufferCounter += 1;					// Increase the buffer to select the correct value of the list
+					totLength += timeStep;				// Increase the length of the Point
 				}
+
+				/* Save the Value of the point */
+				Surface._LDallPoints[key].push_back(LDTot);
 
 				/* Close the point */
-
-
-#pragma endregion
-			}
-		}
-
-
+				Surface.closePoint(key);
+				openPoints_f.erase(openPoints_f.begin());	//Remove the point from the list
 #pragma endregion
 
+#pragma region Backward Closing
 
+				/* Get the first point */
+				key = openPoints_b[0];
 
+				bufferCounter = 0;
+				totLength = 0.;
 
-#if 0
-
-		/* Update the forward and backard buffer variables that save the total value
-	 of the LD and will be updated as the trjs advances */
-#pragma region Update Buffer
-
-	 /* If we reach tau from one side we have reached it from the other and
-	 LDTot does not have to grow more but it has to Update its value */
-		if (growingState)
-		{
-			//TODO: change this to be not dependent of the size.
-			for (size_t i = 0; i < 2; i++)
-			{
-				bufferCounter += 1;											// Increase the counter to remember the position you have to remove from each buffer
-
-				LDTot_f[i] += LDList.back()[i];								// Add the last value to the forward Dyn		
-				LDTot_f[i] -= LDList[bufferCounter][i];						// and remove the first value added to the buffer
-
-				LDTot_b[i] += LDList[0][i];									// Add the first value to the backward Dyn					
-				LDTot_b[i] -= LDList[LDList.size - (1 + bufferCounter)][i];	// and remove the last value added the buffer			
-			}
-
-		}
-		/* If not the LDTot is in growing state and needs to be Increased */
-		else
-		{
-			for (size_t i = 0; i < 2; i++)
-			{
-				LDTot_f[i] += LDList.back()[i];				// Add the back value to the forward Dyn		
-				LDTot_f[i] += LDList[0][i];					// and the first value
-				totLength_f += 2 * timeStep;				// Increase the length by the two values added						
-
-				LDTot_b[i] += LDList.back()[i];				// Add the back value to the backward Dyn			
-				LDTot_b[i] += LDList[0][i];					// and the first value					
-				totLength_b += 2 * timeStep;				// Increase the length by the two values added						
-
-			}
-
-		}
-
-#pragma endregion
-
-		/* Update points while in growing state */
-#pragma region Update Points
-		if (growingState)
-		{
-			/* Forward Updating */
-			for (size_t k = 0; k < openPoints_f.size(); k++)			//Actualize every opened point
-			{
-				key = openPoints_f[k];								//Get the Key of an open point
-				Surface._pointCompletion[key] += 2 * timeStep;		//Increase the length of the point
-
-				/* Add the new LD value */
-				for (size_t i = 0; i < 2; i++)
+				/* Add the values of the LDList from 0 to end
+				until we reach 2*tau */
+				while (totLength < (2 * tau))
 				{
-					Surface._LDallPoints[key].back()[i] += LDList.back()[i];	// Add the last one 
-					Surface._LDallPoints[key].back()[i] += LDList[0][i];		// and the first one 
+					LDTot[0] += LDList[bufferCounter][0];
+					LDTot[1] += LDList[bufferCounter][1];
+
+					bufferCounter += 1;					// Increase the buffer to select the correct value of the list
+					totLength += timeStep;				// Increase the length of the Point
 				}
 
-			}
+				/* Save the Value of the point */
+				Surface._LDallPoints[key].push_back(LDTot);
 
-			/* Backward Updating */
-			for (size_t k = 0; k < openPoints_b.size(); k++)			//Actualize every opened point
-			{
-				key = openPoints_b[k];								//Get the Key of an open point
-				Surface._pointCompletion[key] += 2 * timeStep;		//Increase the length of the point
-
-				/* Add the new LD value */
-				for (size_t i = 0; i < 2; i++)
-				{
-					Surface._LDallPoints[key].back()[i] += LDList.back()[i];	// Add the last one 
-					Surface._LDallPoints[key].back()[i] += LDList[0][i];		// and the first one 
-				}
+				/* Close the point */
+				Surface.closePoint(key);
+				openPoints_f.erase(openPoints_f.begin());	//Remove the point from the list
+#pragma endregion
 
 			}
-
-		}
-		else
-		{
-
+#pragma endregion
 		}
 
 #pragma endregion
-
-
-#pragma region Close Points
-
-		/* If the two oldest open point is finished then close it */
-		if (Surface._pointCompletion[openPoints_f[0]] >= (2 * tau))
-		{
-			Surface.closePoint(openPoints_f[0]);
-			openPoints_f.erase(openPoints_f.begin());
-		}
-
-#pragma endregion
-
-
-#endif // 0
-
-
-
-
 	}
 
+/* Once the trj has finished Save the values */
+#pragma region Saving
 
-	//TODO:Solve the problem of saving the value of each point in both directions
+
+#pragma endregion
+
+
+//TODO:Save the Points
 
 	return 0;
 }
