@@ -143,10 +143,10 @@ void Oscillator::calcAcceleration()
 ///</sumary>
 std::vector<double> Oscillator::calcMomenta()
 {
-	std::vector<double> mom;
+	std::vector<double> mom(_size, 0.);
 	for (size_t i = 0; i < _size; i++)
 	{
-		mom.push_back(_velocity[i] * _redMass[i]);
+		mom[i] = _velocity[i] * _redMass[i];
 	}
 	return mom;
 }
@@ -227,10 +227,16 @@ void Oscillator::setInitialVel_NVE(double Energy, int I)
 	double kinSys = dek * I;								//Set the KE of the system depending on the index
 	double kinBath = kineticTot - kinSys;					//Set the KE of the bath
 
-	//Set the velocities of the system
+	/*Set the velocities of the system */
 	_velocity[0] = sqrt(2 * kinSys / _redMass[0]) * sysdir;
 	_velocity[1] = sqrt(2 * kinBath / _redMass[1])* bathdir;
-	setInitV(_velocity, true);
+
+	/* Also set the kinetic energy */
+	for (size_t i = 0; i < _size; i++)
+	{
+		_kinEnergy[i] = _redMass[i] / 2 * (_velocity[i] * _velocity[i]);
+	}
+
 }
 
 ///<sumary>
@@ -240,8 +246,8 @@ void Oscillator::findBathPos_NVE(double Energy)
 {
 	//We need to searh for the root, the coordinate in the bath that keeps
 	//the energy constant with the given position of the system
-	double postition0, position1; //Inital and final Positions
-	double stepSize;						//Step size
+	double postition0, position1;		//Inital and final Positions
+	double stepSize;					//Step size
 	double E0, E1;//Energies
 
 
@@ -307,11 +313,11 @@ void Oscillator::randomInitialVel_NVE(double Energy, int Syst, int Bath)
 	srand(time(NULL));
 	int one[2] = { -1,1 };
 	double kineticTot = Energy - _potEnergy;//Calculate the total kinetic energy
-	//randomly divide it between the system and the bath
+	
+											//randomly divide it between the system and the bath
 	double kinBath = ut.RandomFloat(0., kineticTot);
 	double kinSys = kineticTot - kinBath;
 
-	//cout << kineticTot << " " << kinBath + kinSys << " " << " " << kinBath << " " << kinSys << endl;
 	int ranIndex = rand() % 2;
 	_velocity[Syst] = sqrt(2 * kinSys / _redMass[Syst]) * one[ranIndex];
 
