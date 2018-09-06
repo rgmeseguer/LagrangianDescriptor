@@ -139,11 +139,11 @@ std::vector<std::string> LDSurfaceCreator::keyWrite(std::vector<double> position
 		stream << std::fixed << std::setprecision(3) << position[i];	// Position
 		stringCoord[i] = stream.str(); stream.str(std::string());
 
-		stream << std::fixed << std::setprecision(3) << momenta[i];		// Momenta
+		stream << std::fixed << std::setprecision(4) << momenta[i];		// Momenta
 		stringMoment[i] = stream.str(); stream.str(std::string());
 
 		key[i] = stringCoord[i];
-		key[i + 1] = stringMoment[i];									//The location of the new point
+		key[i + size] = stringMoment[i];									//The location of the new point
 	}
 
 	return key;

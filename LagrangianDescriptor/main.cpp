@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 	stream.str(std::string());																					//clear the stringstream
 
 	/* Print the Tau in the correct format */
-	if (tau < 0) { stream << std::fixed << std::setprecision(1) << tau; stau = stream.str(); }
+	if (tau < 1) { stream << std::fixed << std::setprecision(1) << tau; stau = stream.str(); }
 	else { stream << std::fixed << std::setprecision(0) << tau; stau = stream.str(); }
 	stream.str(std::string());																					//clear the stringstream
 
