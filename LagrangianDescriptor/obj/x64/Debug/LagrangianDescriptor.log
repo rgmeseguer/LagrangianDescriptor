@@ -1,5 +1,4 @@
-﻿  Cleaning remote project directory
-  Validating sources
+﻿  Validating sources
   Copying sources remotely to 'bluecrystalp3.bris.ac.uk'
   Validating architecture
   Starting remote build
@@ -105,55 +104,55 @@ C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.c
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(346): warning :  #pragma region Saving
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(351): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(351): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(87,9): warning : conversion to 'int' from 'long int' may alter its value [-Wconversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(87,9): warning :   j = iy / NDIV;         //Will be in the range 0..NTAB - 1.
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(87,9): warning :          ^
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,19): warning : conversion to 'double' from 'long int' may alter its value [-Wconversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,19): warning :   if ((temp = AM * iy) > RNMX) return RNMX;
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,19): warning :                    ^~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(22,19): warning : conversion to 'float' alters 'double' constant value [-Wfloat-conversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(86,9): warning : conversion to ‘int’ from ‘long int’ may alter its value [-Wconversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(86,9): warning :   j = iy / NDIV;         //Will be in the range 0..NTAB - 1.
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(86,9): warning :          ^
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,19): warning : conversion to ‘double’ from ‘long int’ may alter its value [-Wconversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,19): warning :   if ((temp = AM * iy) > RNMX) return RNMX;
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,19): warning :                    ^~
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(22,19): warning : conversion to ‘float’ alters ‘double’ constant value [-Wfloat-conversion]
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(22,19): warning :  #define RNMX (1.0 - EPS)
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(22,19): warning :               ~~~~~^~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,38): message : in expansion of macro 'RNMX'
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,38): message :   if ((temp = AM * iy) > RNMX) return RNMX;
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,38): message :                                       ^~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(92,14): warning : conversion to 'float' from 'double' may alter its value [-Wfloat-conversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(92,14): warning :   else return temp;
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(92,14): warning :               ^~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(141,23): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(141,23): warning :   for (size_t i = 0; i < nstep; i += 2)
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(141,23): warning :                      ~~^~~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(150,20): warning : conversion to '__gnu_cxx::__alloc_traits<std::allocator<double> >::value_type {aka double}' from 'long double' may alter its value [-Wfloat-conversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(150,20): warning :    gasdev[i] = term * cos(2 * M_PIl * u2);
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(150,20): warning :                ~~~~~^~~~~~~~~~~~~~~~~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(151,24): warning : conversion to '__gnu_cxx::__alloc_traits<std::allocator<double> >::value_type {aka double}' from 'long double' may alter its value [-Wfloat-conversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(151,24): warning :    gasdev[i + 1] = term * sin(2 * M_PIl * u2);
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(151,24): warning :                    ~~~~~^~~~~~~~~~~~~~~~~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(130,26): warning : conversion to 'int' from 'std::vector<double>::size_type {aka long unsigned int}' may alter its value [-Wconversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,38): message : in expansion of macro ‘RNMX’
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,38): message :   if ((temp = AM * iy) > RNMX) return RNMX;
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,38): message :                                       ^~~~
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,14): warning : conversion to ‘float’ from ‘double’ may alter its value [-Wfloat-conversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,14): warning :   else return temp;
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,14): warning :               ^~~~
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(140,23): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(140,23): warning :   for (size_t i = 0; i < nstep; i += 2)
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(140,23): warning :                      ~~^~~~~~~
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(149,20): warning : conversion to ‘__gnu_cxx::__alloc_traits<std::allocator<double> >::value_type {aka double}’ from ‘long double’ may alter its value [-Wfloat-conversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(149,20): warning :    gasdev[i] = term * cos(2 * M_PIl * u2);
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(149,20): warning :                ~~~~~^~~~~~~~~~~~~~~~~~~~~
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(150,24): warning : conversion to ‘__gnu_cxx::__alloc_traits<std::allocator<double> >::value_type {aka double}’ from ‘long double’ may alter its value [-Wfloat-conversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(150,24): warning :    gasdev[i + 1] = term * sin(2 * M_PIl * u2);
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(150,24): warning :                    ~~~~~^~~~~~~~~~~~~~~~~~~~~
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(130,26): warning : conversion to ‘int’ from ‘std::vector<double>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(130,26): warning :   int size = position.size();
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(130,26): warning :              ~~~~~~~~~~~~~^~
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(135,23): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(135,23): warning :   for (size_t i = 0; i < size; i++)
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(135,23): warning :                      ~~^~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(307,12): warning : conversion to 'unsigned int' from 'time_t {aka long int}' may alter its value [-Wconversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(307,12): warning : conversion to ‘unsigned int’ from ‘time_t {aka long int}’ may alter its value [-Wconversion]
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(307,12): warning :   srand(time(NULL));
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(307,12): warning :         ~~~~^~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(311,48): warning : conversion to 'float' from 'double' may alter its value [-Wfloat-conversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(311,48): warning : conversion to ‘float’ from ‘double’ may alter its value [-Wfloat-conversion]
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(311,48): warning :   double kinBath = ut.RandomFloat(0., kineticTot);
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(311,48): warning :                                                 ^
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(71,24): warning : conversion to 'int' from 'double' may alter its value [-Wfloat-conversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(71,24): warning : conversion to ‘int’ from ‘double’ may alter its value [-Wfloat-conversion]
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(71,24): warning :   _numberStep = ut.absol(int(t / _timeStep));
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(71,24): warning :                 ~~~~~~~~^~~~~~~~~~~~~~~~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(92,12): warning : conversion to 'unsigned int' from 'time_t {aka long int}' may alter its value [-Wconversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(92,12): warning : conversion to ‘unsigned int’ from ‘time_t {aka long int}’ may alter its value [-Wconversion]
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(92,12): warning :   srand(time(NULL));                   // Initialize the random seed
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(92,12): warning :         ~~~~^~~~~~
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(166,23): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(166,23): warning :   for (size_t j = 0; j < Dynf._numberStep; j++)
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(166,23): warning :                      ~~^~~~~~~~~~~~~~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(168,30): warning : conversion to 'double' from 'size_t {aka long unsigned int}' may alter its value [-Wconversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(168,30): warning : conversion to ‘double’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(168,30): warning :    if (growingState && j*Dynf._timeStep >= tau) { growingState = false; } // Once we reach time tau points begin to close
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(168,30): warning :                               ^~~~~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(218,14): warning : conversion to 'double' from 'size_t {aka long unsigned int}' may alter its value [-Wconversion]
+C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(218,14): warning : conversion to ‘double’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(218,14): warning :    if (j*Dynf._timeStep < Dynf._numberStep*Dynf._timeStep - tau)
 C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(218,14): warning :               ^~~~~~~~~
   Linking objects

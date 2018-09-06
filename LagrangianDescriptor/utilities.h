@@ -31,7 +31,6 @@ public:
 	double** create_matrix(size_t, size_t);
 	std::vector<double> box_muller(int nstep, long *ran);
 	double absol(double val);
-	double squareRt(double x);
 
 };
 
@@ -162,21 +161,3 @@ double utilities::absol(double value)
 	else { return value; }
 }
 
-double utilities::squareRt(double x)
-{
-	if (x <= 0)
-		return 0;       // if negative number throw an exception?
-	int exp = 0;
-	x = frexp(x, &exp); // extract binary exponent from x
-	if (exp & 1) {      // we want exponent to be even
-		exp--;
-		x *= 2;
-	}
-	double y = (1 + x) / 2; // first approximation
-	double z = 0;
-	while (y != z) {    // yes, we CAN compare doubles here!
-		z = y;
-		y = (y + x / y) / 2;
-	}
-	return ldexp(y, exp / 2); // multiply answer by 2^(exp/2)
-}

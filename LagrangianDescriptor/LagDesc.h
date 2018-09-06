@@ -2,8 +2,7 @@
 #include <vector>					//vector	
 #include <math.h>					//sqrt
 
-#include "utilities.h"				//powerd, absol, squareRt
-
+#include "utilities.h"				//powerd, absol
 
 class LagDesc
 {
@@ -36,7 +35,7 @@ std::vector<double> LagDesc::MAction(std::vector<double> momenta, std::vector<do
 
 	for (size_t i = 0; i < rdot.size(); i++)
 	{
-		M[i] = ut.squareRt(momenta[i] * rdot[i]);		// Calculate the action
+		M[i] = sqrt(momenta[i] * rdot[i]);		// Calculate the action
 	}
 	return M;
 }
@@ -51,7 +50,7 @@ double LagDesc::MArc(std::vector<double> velocities)
 	{
 		sqV += (velocities[i] * velocities[i]);
 	}
-	return ut.squareRt(sqV);
+	return sqrt(sqV);
 }
 
 double LagDesc::M5(std::vector<double> velocity, std::vector<double> acceleration)
@@ -70,7 +69,7 @@ double LagDesc::M5(std::vector<double> velocity, std::vector<double> acceleratio
 	}
 
 	/**/
-	return 1. / (1. + ut.squareRt(ut.absol((sqV*sqA - sqB * sqB) / ut.powerd(sqV, 3))));
+	return 1. / (1. + sqrt(ut.absol((sqV*sqA - sqB * sqB) / ut.powerd(sqV, 3))));
 }
 
 #endif

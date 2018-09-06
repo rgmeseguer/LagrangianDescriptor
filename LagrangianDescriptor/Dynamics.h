@@ -77,7 +77,7 @@ void Dynamics::setTime(double t)
 /// </summary>
 void Dynamics::setLangevin(double mu /*bath mass*/, double beta /*Effective Temperature*/, double gamma /*Dissipation Factor*/)
 {
-	sigma = ut.squareRt(2 * gamma*fabs(_timeStep) / beta);
+	sigma = sqrt(2 * gamma*fabs(_timeStep) / beta);
 	A = gamma * ut.absol(_timeStep) / (2 * mu);
 	B = 1 / (1 + A);
 	A = (1 - A) / (1 + A);
