@@ -187,7 +187,7 @@ void Oscillator::calcGradient()
 ///</sumary>
 void Oscillator::setInitialVel_NVE(double Energy, int I, int scale)
 {
-	int precission = 10 * scale;
+	int precission = ut.powerd(10, scale);
 	//TODO: Make this not size dependent
 #pragma region Select the direction of the system and the bath
 	int sysdir, bathdir;
