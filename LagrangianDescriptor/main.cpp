@@ -39,7 +39,6 @@ std::vector<double> DOS_G(std::vector<double> coeff, std::vector<double> r)
 	return grad;
 }
 
-
 int main(int argc, char *argv[])
 {
 
@@ -89,7 +88,6 @@ int main(int argc, char *argv[])
 
 /* Set the Initial Conditions */
 #pragma region System Initial Conditions and Variables
-	srand(time(NULL));																			// Initialize the random seed
 
 	/* Initiate the Oscillator */
 	Oscillator Oscf({ 321.904484,-995.713452,1118.689573,-537.856726,92.976121,1.0,1.0,0.01 },	/* Coefficients from the oscillator */\
@@ -99,20 +97,28 @@ int main(int argc, char *argv[])
 	{ 1., bathMass },																/* Mass Values */\
 		DOS_V, DOS_G);																/* Potential and Gradient Functions */
 
+	srand(time(NULL));												// Initialize the random seed
+
 	std::vector<double> R0 = { 1.36561 ,2.161769 };					// Initial Position
 	double Energy = 3.691966889;									// Energy of the system
+	double timeStep = 1.e-3;										// Set the Time Step/Precision of the Dynamic
+
+	/* We are going to perform two Dynamics at the same time,
+	one in Foward and the other in Backward time.
+	To do so, we need to initialize 2 Oscillators and 2 Dynamics*/
+
+	/* Initialize the Oscillators */
 	Oscf.setInitP(R0, true);										// Initiate at the shadle point
 	Oscb.setInitialVel_NVE(Energy, I);								// Set initial Random Velocities to keep energy
 	Oscf.setInitP(R0, true);										// Initiate at the shadle point
 	Oscb.setInitialVel_NVE(Energy, I);								// Set initial Random Velocities to keep energy
 
 	/* Initialize the dynamics */
-	double timeStep = 1.e-3;										// Set the Time Step/Precision of the Dynamic
 	Dynamics Dynf;													// Set the forward Dynamic							
 	Dynf.setTimeStep(timeStep);										// Set the Time step
 	Dynf.setTime(TrjTime);											// and the total time (nsteps = totalTime/timeTtep)
 	Dynamics Dynb;													// Set the backward Dynamic
-	Dynb.setTimeStep(-1 * timeStep);									// Set the Time step
+	Dynb.setTimeStep(-1 * timeStep);								// Set the Time step
 	Dynb.setTime(TrjTime);											// and the total time (nsteps = totalTime/timeTtep)
 	bool growingState = true;										// state of the trj growing or updating
 
@@ -128,28 +134,24 @@ int main(int argc, char *argv[])
 #endif
 
 	/* Initialize the Lagrangian Descriptor Object*/
-	LagDesc LD;													// Lagrangian Descriptor variable
+	LagDesc LD;														// Lagrangian Descriptor variable
 
 	/* Create the surface of the where the LD values will be saved */
 	LDSurfaceCreator Surface;
-	std::vector<std::vector<std::string>> openPoints_f;			// Tracker of the points at which the LD forward is beig calculated	
-	std::vector<std::vector<std::string>> openPoints_b;			// Tracker of the points at which the LD backward is beig calculated	
-	std::vector<std::string> zeroPoint(Oscf._size * 2, " ");	// Initial point
+	std::vector<std::vector<std::string>> openPoints_f;				// Tracker of the points at which the LD forward is beig calculated	
+	std::vector<std::vector<std::string>> openPoints_b;				// Tracker of the points at which the LD backward is beig calculated	
+	std::vector<std::string> zeroPoint(Oscf._size * 2, " ");		// Initial point
 
 	/* Variables to create the Keys of the surface's points */
-	//std::vector<std::string> stringCoord(Oscf._size, " "), stringMoment(Oscf._size, " ");		// Strings needed for the key of the point
-	std::vector<std::string> keyf(Oscf._size * 2, " ");			// Key of the position for the forward Trj 
-	std::vector<std::string> keyb(Oscf._size * 2, " ");			// Key of the position for the backward Trj
-	std::vector<std::string> key(Oscf._size * 2, " ");			// Temporary key
+	std::vector<std::string> keyf(Oscf._size * 2, " ");				// Key of the position for the forward Trj 
+	std::vector<std::string> keyb(Oscf._size * 2, " ");				// Key of the position for the backward Trj
+	std::vector<std::string> key(Oscf._size * 2, " ");				// Temporary key
 
 
 	/* Surface Variables Required to Udate the Points */
-	//std::vector<std::vector<std::string>> OpenPoints;			// Tracker of the points at which the LD is beig calculated							
 	std::vector<std::vector<double>> LDList;					// Buffer of the LD value at each step
 	std::vector<double> LDTot = { 0.,0. };						// Buffer of the LD value
-	//std::vector<double> LDTot_b = { 0.,0. };					// Buffer of the LD value
 	double totLength = 0.;										// Lenght of the Buffers
-	std::vector<double> tmp = { 0.,0. };						// Temporary Buffer
 	int bufferCounter = 0;										// Counter to follow the values we need to remove from the buffer
 #pragma endregion
 
@@ -162,7 +164,7 @@ int main(int argc, char *argv[])
 
 #pragma endregion
 
-/* Initate the trayectory */
+/* Initate the trajectory */
 	for (size_t j = 0; j < Dynf._numberStep; j++)
 	{
 		if (growingState && j*Dynf._timeStep >= tau) { growingState = false; } // Once we reach time tau points begin to close
@@ -194,19 +196,21 @@ int main(int argc, char *argv[])
 #pragma region Lagrangian Descriptor Calculation
 
 #if KEY_MF==1
-		/* Foward LD Calculation */
-		tmp = LD.MAction(Oscf.calcMomenta(), Oscf._velocity);
-		tmp[0] *= timeStep;
-		tmp[1] *= timeStep;
+		/* We can use LDTot as a temporal Variable to save the value of the LD at that point */
 
-		LDList.push_back(tmp);											// Save it at the end
+		/* Foward LD Calculation */
+		LDTot = LD.MAction(Oscf.calcMomenta(), Oscf._velocity);
+		LDTot[0] *= timeStep;
+		LDTot[1] *= timeStep;
+
+		LDList.push_back(LDTot);											// Save it at the end
 
 		/* Backward LD Calculation */
-		tmp = LD.MAction(Oscb.calcMomenta(), Oscb._velocity);
-		tmp[0] *= timeStep;
-		tmp[1] *= timeStep;
+		LDTot = LD.MAction(Oscb.calcMomenta(), Oscb._velocity);
+		LDTot[0] *= timeStep;
+		LDTot[1] *= timeStep;
 
-		LDList.insert(LDList.begin(), tmp);								// Save it at the begining
+		LDList.insert(LDList.begin(), LDTot);							// Save it at the begining
 
 #endif
 #pragma endregion
@@ -347,11 +351,7 @@ int main(int argc, char *argv[])
 	outputFile.open(calc + "_" + std::to_string(I) + "_" + "LD.txt", std::ios::out | std::ios::trunc);
 	Surface.SavePointAver(outputFile);											//Calc the average and print it
 	outputFile.close();
-
 #pragma endregion
-
-
-//TODO:Save the Points
 
 	return 0;
 }
