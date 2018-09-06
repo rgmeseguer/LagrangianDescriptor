@@ -95,20 +95,23 @@ void LDSurfaceCreator::SavePointAver(std::ofstream &sfile)
 
 #pragma region Average Calculation
 
-		_LDavPoints[key] = { 0.,0. };							//Calculate the Average of the Point
+		/* Calculate the Average of the Point */
+		_LDavPoints[key] = { 0.,0. };							
 
-		for (size_t j = 0; j < _LDallPoints[key].size(); j++)	//Add all the LD values of the Point
+		/* Add all the LD values of the Point */
+		for (size_t j = 0; j < _LDallPoints[key].size(); j++)	
 		{
-
 			_LDavPoints[key][0] += _LDallPoints[key][j][0];
 			_LDavPoints[key][1] += _LDallPoints[key][j][1];
 		}
-		_LDavPoints[key][0] /= _pointOpenedTimes[key];								//Divide it by the total number of values
-		_LDavPoints[key][1] /= _pointOpenedTimes[key];								//Divide it by the total number of values
+		
+		/* Divide it by the total number of values */
+		_LDavPoints[key][0] /= _pointOpenedTimes[key];								
+		_LDavPoints[key][1] /= _pointOpenedTimes[key];								
 
 #pragma endregion
-
-		for (size_t j = 0; j < key.size(); j++)					//Saves the point in the file
+		/* Saves the point in the file */
+		for (size_t j = 0; j < key.size(); j++)					
 		{
 			sfile << key[j] << ' ';
 		}

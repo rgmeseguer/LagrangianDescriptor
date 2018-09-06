@@ -1,7 +1,8 @@
 #include <cstdio>
-#include <vector>				// Vector
-#include <sstream>				// stringstream
-#include <iomanip>				// setprecision
+#include <vector>			// std::vector
+#include <sstream>			// std::stringstream
+#include <iomanip>			// std::setprecision
+#include <fstream>			// std::ofstream
 
 #include "utilities.h"
 #include "LDSurfaceCreator.h"
@@ -64,6 +65,8 @@ int main(int argc, char *argv[])
 #pragma region Variables for printing
 	std::string BthM, stau;																						//String version of tau and Mass
 	std::stringstream stream;																					//Temporary string
+	std::ofstream outputFile;																					//Saving file
+
 
 	/* Print the bath mass in the correct format  */
 	if (bathMass < 1) { stream << std::fixed << std::setprecision(1) << bathMass;	BthM = stream.str(); }
@@ -341,7 +344,9 @@ int main(int argc, char *argv[])
 
 /* Once the trj has finished Save the values */
 #pragma region Saving
-
+	outputFile.open(calc + "_" + std::to_string(I) + "_" + "LD.txt", std::ios::out | std::ios::trunc);
+	Surface.SavePointAver(outputFile);											//Calc the average and print it
+	outputFile.close();
 
 #pragma endregion
 
