@@ -113,9 +113,9 @@ int main(int argc, char *argv[])
 
 	/* Initialize the Oscillators */
 	Oscf.setInitP(R0, true);										// Initiate at the shadle point
-	Oscf.setInitialVel_NVE(Energy, I);								// Set initial Random Velocities to keep energy
+	Oscf.setInitialVel_NVE(Energy, I, 3);							// Set initial Random Velocities to keep energy
 	Oscb.setInitP(R0, true);										// Initiate at the shadle point
-	Oscb.setInitialVel_NVE(Energy, I);								// Set initial Random Velocities to keep energy
+	Oscb.setInitialVel_NVE(Energy, I, 3);							// Set initial Random Velocities to keep energy
 
 	/* Initialize the dynamics */
 	Dynamics Dynf;													// Set the forward Dynamic							

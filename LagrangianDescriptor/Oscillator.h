@@ -52,8 +52,8 @@ public:
 	/* Changing initial conditions to keep Energy constant */
 	
 	//Sets the velocity of the two motions to keep the energy constant I=[0:3999] is the index for the velocity of the bath
-	void setInitialVel_NVE(double Energy, int I);
-	
+	void setInitialVel_NVE(double Energy, int I, int scale);
+
 	//Finds the point for the bath knowing the position of the remaining DF and the KE being 0
 	void findBathPos_NVE(double Energy);
 	
@@ -185,32 +185,33 @@ void Oscillator::calcGradient()
 ///<sumary>
 ///Sets the velocity of the two motions to keep the energy constant I=[0:3999] is the index for the velocity of the bath
 ///</sumary>
-void Oscillator::setInitialVel_NVE(double Energy, int I)
+void Oscillator::setInitialVel_NVE(double Energy, int I, int scale)
 {
+	int precission = 10 * scale;
 	//TODO: Make this not size dependent
 #pragma region Select the direction of the system and the bath
 	int sysdir, bathdir;
-	if (I >= 40000)
+	if (I >= 4 * precission)
 	{
-		printf("Error:Index too high, Max number of calculations 4000\n");
+		std::cout << "Error:Index too high, Max number of calculations " << 4 * precission << std::endl;
 		std::terminate();
 	}
-	else if (I >= 30000)
+	else if (I >= 3 * precission)
 	{
-		I = I - 30000;
+		I = I - 3 * precission;
 		sysdir = -1;
 		bathdir = -1;
 	}
-	else if (I >= 20000)
+	else if (I >= 2 * precission)
 	{
-		I = I - 20000;
+		I = I - 2 * precission;
 		sysdir = 1;
 		bathdir = -1;
 
 	}
-	else if (I >= 10000)
+	else if (I >= 1 * precission)
 	{
-		I = I - 10000;
+		I = I - 1 * precission;
 		sysdir = -1;
 		bathdir = 1;
 	}
@@ -223,7 +224,7 @@ void Oscillator::setInitialVel_NVE(double Energy, int I)
 #pragma endregion
 
 	double kineticTot = Energy - _potEnergy;				//Calculate the total kinetic energy
-	double dek = kineticTot / 10000;						//Divide the energy into 1000 steps
+	double dek = kineticTot / precission;					//Divide the energy depending on the precission
 	double kinSys = dek * I;								//Set the KE of the system depending on the index
 	double kinBath = kineticTot - kinSys;					//Set the KE of the bath
 
