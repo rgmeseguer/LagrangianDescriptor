@@ -30,16 +30,16 @@ public:
 	std::map<std::vector<std::string>, int> _pointOpenedTimes;							// Times a point has been opened
 
 	/* Variables for storing the Surface */
-	void savingPointAdd(std::vector<std::string>);				// Adds one point to the list of saving points
+	void savingPointAdd(std::vector<std::string>);										// Adds one point to the list of saving points
 
 	/* Functions to create the points */
-	void addPoint(std::vector<std::string>);					// Create a new point using its "location" as a key
-	void openPoint(std::vector<std::string>);					// Opens an existing point
-	void closePoint(std::vector<std::string>);					// Closes an opened point
-	void SavePointAver(std::ofstream&);							// Calculates the average of the points and saves them
-	bool doesKeyExist(std::vector<std::string>);				// Check the existence of a key
+	void addPoint(std::vector<std::string>);														// Create a new point using its "location" as a key
+	void openPoint(std::vector<std::string>);														// Opens an existing point
+	void closePoint(std::vector<std::string>);														// Closes an opened point
+	void SavePointAver(std::ofstream&, std::vector<std::vector<std::string>> savingSelection);		// Calculates the average of the points and saves them
+	bool doesKeyExist(std::vector<std::string>);													// Check the existence of a key
 
-	std::vector<std::string> keyWrite(std::vector<double>, std::vector<double>);	// Write the key in the correct format
+	std::vector<std::string> keyWrite(std::vector<double>, std::vector<double>);		// Write the key in the correct format
 
 
 
@@ -105,14 +105,14 @@ bool LDSurfaceCreator::doesKeyExist(std::vector<std::string>key)
 ///<surface>
 ///Saves the average of the point in a file
 ///</surface>
-void LDSurfaceCreator::SavePointAver(std::ofstream &sfile)
+void LDSurfaceCreator::SavePointAver(std::ofstream &sfile, std::vector<std::vector<std::string>> savingSelection)
 {
 	/* If selectiveSaving is true only save those points that are marked to be saved*/
 	if (selectiveSaving)
 	{
-		for (size_t i = 0; i < _savingLoc.size(); i++)				//Run over all the keys created
+		for (size_t i = 0; i < savingSelection.size(); i++)				//Run over all the keys created
 		{
-			std::vector<std::string> key = _savingLoc[i];			//Get the key					
+			std::vector<std::string> key = savingSelection[i];			//Get the key					
 
 #pragma region Average Calculation
 

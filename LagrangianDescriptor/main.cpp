@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 #pragma region Variables for printing
 	std::string BthM, stau;																						//String version of tau and Mass
 	std::stringstream stream;																					//Temporary string
-	std::ofstream outputFile;																					//Saving file
+	std::ofstream outputFile, outputFile_f, outputFile_b;														//Saving file
 
 
 	/* Print the bath mass in the correct format  */
@@ -174,7 +174,10 @@ int main(int argc, char *argv[])
 	
 	if (std::stof(zeroPoint[3]) == 0.)								// If the initial condition has a zero momenta on the bath then save that point too
 	{
-		Surface.savingPointAdd(zeroPoint);							// Just remember the first point does not have a pair because you don't need to interpolate is already zero
+		savingPoints_f.push_back(zeroPoint);
+		savingPoints_b.push_back(zeroPoint);
+
+		//Surface.savingPointAdd(zeroPoint);							// Just remember the first point does not have a pair because you don't need to interpolate is already zero
 	}
 
 #pragma endregion
@@ -218,14 +221,18 @@ int main(int argc, char *argv[])
 		LDTot = LD.MAction(Oscf.calcMomenta(), Oscf._velocity);
 		LDTot[0] *= timeStep;
 		LDTot[1] *= timeStep;
-
+		
+		std::cout << "Forw: " << Oscf._velocity[0] << " " << Oscf._velocity[1] << std::endl;
+		
 		LDList.push_back(LDTot);											// Save it at the end
 
 		/* Backward LD Calculation */
 		LDTot = LD.MAction(Oscb.calcMomenta(), Oscb._velocity);
 		LDTot[0] *= timeStep;
 		LDTot[1] *= timeStep;
-
+		
+		std::cout << "Back: "<< Oscb._velocity[0] << " " << Oscb._velocity[1] << std::endl;
+		
 		LDList.insert(LDList.begin(), LDTot);							// Save it at the begining
 
 #endif
@@ -249,8 +256,12 @@ int main(int argc, char *argv[])
 
 				if (Dynf.doesItCrossZero(Oscf.calcMomenta()[1]))		// If the trajectory crossed zero in the bath momenta from the previous step save those two points
 				{
-					Surface.savingPointAdd(previousPoint_f);			// Because both points are toghether in the list we will be able to know between which two interpolate
-					Surface.savingPointAdd(keyf);				
+					savingPoints_f.push_back(previousPoint_f);
+					savingPoints_f.push_back(keyf);
+
+					//Surface.savingPointAdd(previousPoint_f);			// Because both points are toghether in the list we will be able to know between which two interpolate
+					//Surface.savingPointAdd(keyf);				
+
 				} // we don't need to save this again because same point will always cross zero and will have it values saved.
 
 			}
@@ -276,8 +287,11 @@ int main(int argc, char *argv[])
 
 				if (Dynb.doesItCrossZero(Oscb.calcMomenta()[1]))		// If the trajectory crossed zero in the bath momenta from the previous step save those two points
 				{
-					Surface.savingPointAdd(previousPoint_b);			// Because both points are toghether in the list we will be able to know between which two interpolate
-					Surface.savingPointAdd(keyb);
+					savingPoints_b.push_back(previousPoint_b);
+					savingPoints_b.push_back(keyb);
+
+					//Surface.savingPointAdd(previousPoint_b);			// Because both points are toghether in the list we will be able to know between which two interpolate
+					//Surface.savingPointAdd(keyb);
 				} // we don't need to save this again because same point will always cross zero and will have it values saved.
 
 			}
@@ -395,9 +409,16 @@ int main(int argc, char *argv[])
 
 /* Once the trj has finished Save the values */
 #pragma region Saving
-	outputFile.open(calc + "_" + std::to_string(I) + "_" + "LD.txt", std::ios::out | std::ios::trunc);
-	Surface.SavePointAver(outputFile);											//Calc the average and print it
-	outputFile.close();
+	//outputFile.open(calc + "_" + std::to_string(I) + "_" + "LD.txt", std::ios::out | std::ios::trunc);
+	//Surface.SavePointAver(outputFile);											//Calc the average and print it
+
+	outputFile_f.open(calc + "_" + std::to_string(I) + "_f_" + "LD.txt", std::ios::out | std::ios::trunc);
+	Surface.SavePointAver(outputFile_f,savingPoints_f);
+	outputFile_f.close();
+
+	outputFile_b.open(calc + "_" + std::to_string(I) + "_b_" + "LD.txt", std::ios::out | std::ios::trunc);
+	Surface.SavePointAver(outputFile_b, savingPoints_b);
+	outputFile_b.close();
 
 #pragma endregion
 
