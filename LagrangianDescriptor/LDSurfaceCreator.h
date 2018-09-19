@@ -13,35 +13,53 @@ define out LD surface. */
 
 class LDSurfaceCreator
 {
-	std::vector<std::vector<std::string>> _location;		//List of locations created in the map
+	std::vector<std::vector<std::string>> _location;		// List of locations created in the map
+	
+	bool selectiveSaving;									// Decide if we want to save every point or those that cross zero in the followed DoF
+	std::vector<std::vector<std::string>> _savingLoc;		// List of saving locations
+
 
 public:
-	LDSurfaceCreator();
+	LDSurfaceCreator(bool);
 	
 	/* Variables for storing values */
-	std::map<std::vector<std::string>, std::vector<std::vector<double>>> _LDallPoints;	//Vector of LD values of a point 
-	std::map<std::vector<std::string>, std::vector<double>> _LDavPoints;				//Average value of the LD of a point
-	std::map<std::vector<std::string>, bool> _pointStatComplete;						//Status of the point
-	std::map<std::vector<std::string>, double> _pointCompletion;						//Completion of the point
-	std::map<std::vector<std::string>, int> _pointOpenedTimes;							//times a point has been opened
+	std::map<std::vector<std::string>, std::vector<std::vector<double>>> _LDallPoints;	// Vector of LD values of a point 
+	std::map<std::vector<std::string>, std::vector<double>> _LDavPoints;				// Average value of the LD of a point
+	std::map<std::vector<std::string>, bool> _pointStatComplete;						// Status of the point
+	std::map<std::vector<std::string>, double> _pointCompletion;						// Completion of the point
+	std::map<std::vector<std::string>, int> _pointOpenedTimes;							// Times a point has been opened
 
 	/* Variables for storing the Surface */
-	
+	void savingPointAdd(std::vector<std::string>);										// Adds one point to the list of saving points
 
 	/* Functions to create the points */
-	void addPoint(std::vector<std::string>);					//Create a new point using its "location" as a key
-	void openPoint(std::vector<std::string>);					//Opens an existing point
-	void closePoint(std::vector<std::string>);					//Closes an opened point
-	void SavePointAver(std::ofstream&);							//Calculates the average of the points and saves them
-	bool doesKeyExist(std::vector<std::string>);				//Check the existence of a key
+	void addPoint(std::vector<std::string>);														// Create a new point using its "location" as a key
+	void openPoint(std::vector<std::string>);														// Opens an existing point
+	void closePoint(std::vector<std::string>);														// Closes an opened point
+	void SavePointAver(std::ofstream&, std::vector<std::vector<std::string>> savingSelection);		// Calculates the average of the points and saves them
+	bool doesKeyExist(std::vector<std::string>);													// Check the existence of a key
 
-	std::vector<std::string> keyWrite(std::vector<double>, std::vector<double>);	//Write the key in the correct format
+	std::vector<std::string> keyWrite(std::vector<double>, std::vector<double>);		// Write the key in the correct format
+
+
 
 };
 
 
 
-LDSurfaceCreator::LDSurfaceCreator() { _location = {}; }
+LDSurfaceCreator::LDSurfaceCreator(bool selective) 
+{ 
+	_location = {}; 
+	selectiveSaving = selective;
+}
+
+///<surface>
+/// Adds one point to the list of saving points.
+///</surface>
+void LDSurfaceCreator::savingPointAdd(std::vector<std::string> point)
+{
+	_savingLoc.push_back(point);
+}
 
 ///<surface>
 /// Opens an existing point.
@@ -87,38 +105,78 @@ bool LDSurfaceCreator::doesKeyExist(std::vector<std::string>key)
 ///<surface>
 ///Saves the average of the point in a file
 ///</surface>
-void LDSurfaceCreator::SavePointAver(std::ofstream &sfile)
+void LDSurfaceCreator::SavePointAver(std::ofstream &sfile, std::vector<std::vector<std::string>> savingSelection)
 {
-	for (size_t i = 0; i < _location.size(); i++)				//Run over all the keys created
+	/* If selectiveSaving is true only save those points that are marked to be saved*/
+	if (selectiveSaving)
 	{
-		std::vector<std::string> key = _location[i];			//Get the key					
+		for (size_t i = 0; i < savingSelection.size(); i++)				//Run over all the keys created
+		{
+			std::vector<std::string> key = savingSelection[i];			//Get the key					
 
 #pragma region Average Calculation
 
 		/* Calculate the Average of the Point */
-		_LDavPoints[key] = { 0.,0. };							
+			_LDavPoints[key] = { 0.,0. };
 
-		/* Add all the LD values of the Point */
-		for (size_t j = 0; j < _LDallPoints[key].size(); j++)	
-		{
-			_LDavPoints[key][0] += _LDallPoints[key][j][0];
-			_LDavPoints[key][1] += _LDallPoints[key][j][1];
-		}
-		
-		/* Divide it by the total number of values */
-		_LDavPoints[key][0] /= _pointOpenedTimes[key];								
-		_LDavPoints[key][1] /= _pointOpenedTimes[key];								
+			/* Add all the LD values of the Point */
+			for (size_t j = 0; j < _LDallPoints[key].size(); j++)
+			{
+				_LDavPoints[key][0] += _LDallPoints[key][j][0];
+				_LDavPoints[key][1] += _LDallPoints[key][j][1];
+			}
+
+			/* Divide it by the total number of values */
+			_LDavPoints[key][0] /= _pointOpenedTimes[key];
+			_LDavPoints[key][1] /= _pointOpenedTimes[key];
 
 #pragma endregion
-		/* Saves the point in the file */
-		for (size_t j = 0; j < key.size(); j++)					
-		{
-			sfile << key[j] << ' ';
+			/* Saves the point in the file */
+			for (size_t j = 0; j < key.size(); j++)
+			{
+				sfile << key[j] << ' ';
+			}
+			sfile << _LDavPoints[key][0] << ' ';
+			sfile << _LDavPoints[key][1] << ' ';
+			sfile << _LDavPoints[key][0] + _LDavPoints[key][1] << ' ';
+			sfile << std::endl;
 		}
-		sfile << _LDavPoints[key][0] << ' ';
-		sfile << _LDavPoints[key][1] << ' ';
-		sfile << _LDavPoints[key][0] + _LDavPoints[key][1] << ' ';
-		sfile << std::endl;
+
+	}
+	else
+	{
+		for (size_t i = 0; i < _location.size(); i++)				//Run over all the keys created
+		{
+			std::vector<std::string> key = _location[i];			//Get the key					
+
+#pragma region Average Calculation
+
+		/* Calculate the Average of the Point */
+			_LDavPoints[key] = { 0.,0. };
+
+			/* Add all the LD values of the Point */
+			for (size_t j = 0; j < _LDallPoints[key].size(); j++)
+			{
+				_LDavPoints[key][0] += _LDallPoints[key][j][0];
+				_LDavPoints[key][1] += _LDallPoints[key][j][1];
+			}
+
+			/* Divide it by the total number of values */
+			_LDavPoints[key][0] /= _pointOpenedTimes[key];
+			_LDavPoints[key][1] /= _pointOpenedTimes[key];
+
+#pragma endregion
+			/* Saves the point in the file */
+			for (size_t j = 0; j < key.size(); j++)
+			{
+				sfile << key[j] << ' ';
+			}
+			sfile << _LDavPoints[key][0] << ' ';
+			sfile << _LDavPoints[key][1] << ' ';
+			sfile << _LDavPoints[key][0] + _LDavPoints[key][1] << ' ';
+			sfile << std::endl;
+		}
+
 	}
 }
 
@@ -139,7 +197,7 @@ std::vector<std::string> LDSurfaceCreator::keyWrite(std::vector<double> position
 		stream << std::fixed << std::setprecision(3) << position[i];	// Position
 		stringCoord[i] = stream.str(); stream.str(std::string());
 
-		stream << std::fixed << std::setprecision(4) << momenta[i];		// Momenta
+		stream << std::fixed << std::setprecision(5) << momenta[i];		// Momenta
 		stringMoment[i] = stream.str(); stream.str(std::string());
 
 		key[i] = stringCoord[i];

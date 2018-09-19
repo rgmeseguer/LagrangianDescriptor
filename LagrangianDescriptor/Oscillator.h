@@ -188,28 +188,30 @@ void Oscillator::calcGradient()
 void Oscillator::setInitialVel_NVE(double Energy, int I, int scale)
 {
 	int precission = ut.powerd(10, scale);
+
+	
 	//TODO: Make this not size dependent
 #pragma region Select the direction of the system and the bath
 	int sysdir, bathdir;
-	if (I >= 4 * precission)
+	if (I > 4 * precission)
 	{
 		std::cout << "Error:Index too high, Max number of calculations " << 4 * precission << std::endl;
 		std::terminate();
 	}
-	else if (I >= 3 * precission)
+	else if (I > 3 * precission)
 	{
 		I = I - 3 * precission;
 		sysdir = -1;
 		bathdir = -1;
 	}
-	else if (I >= 2 * precission)
+	else if (I > 2 * precission)
 	{
 		I = I - 2 * precission;
 		sysdir = 1;
 		bathdir = -1;
 
 	}
-	else if (I >= 1 * precission)
+	else if (I > 1 * precission)
 	{
 		I = I - 1 * precission;
 		sysdir = -1;

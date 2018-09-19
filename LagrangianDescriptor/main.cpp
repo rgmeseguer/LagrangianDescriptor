@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 #pragma region Variables for printing
 	std::string BthM, stau;																						//String version of tau and Mass
 	std::stringstream stream;																					//Temporary string
-	std::ofstream outputFile;																					//Saving file
+	std::ofstream outputFile, outputFile_f, outputFile_b;														//Saving file
 
 
 	/* Print the bath mass in the correct format  */
@@ -113,9 +113,9 @@ int main(int argc, char *argv[])
 
 	/* Initialize the Oscillators */
 	Oscf.setInitP(R0, true);										// Initiate at the shadle point
-	Oscf.setInitialVel_NVE(Energy, I, 3);							// Set initial Random Velocities to keep energy
+	Oscf.setInitialVel_NVE(Energy, I, 4);							// Set initial Random Velocities to keep energy
 	Oscb.setInitP(R0, true);										// Initiate at the shadle point
-	Oscb.setInitialVel_NVE(Energy, I, 3);							// Set initial Random Velocities to keep energy
+	Oscb.setInitialVel_NVE(Energy, I, 4);							// Set initial Random Velocities to keep energy
 
 	/* Initialize the dynamics */
 	Dynamics Dynf;													// Set the forward Dynamic							
@@ -141,9 +141,16 @@ int main(int argc, char *argv[])
 	LagDesc LD;														// Lagrangian Descriptor variable
 
 	/* Create the surface of the where the LD values will be saved */
-	LDSurfaceCreator Surface;
+	LDSurfaceCreator Surface(true);									// Surface creator with selective saving true
 	std::vector<std::vector<std::string>> openPoints_f;				// Tracker of the points at which the LD forward is beig calculated	
 	std::vector<std::vector<std::string>> openPoints_b;				// Tracker of the points at which the LD backward is beig calculated	
+	std::vector<std::vector<std::string>> savingPoints_f;			// Tracker of the points that will be saved because they cross the zero momenta of the bath	
+	std::vector<std::vector<std::string>> savingPoints_b;			// Tracker of the points that will be saved because they cross the zero momenta of the bath	
+	
+	std::vector<std::string> previousPoint_f(Oscf._size * 2, " ");		// Variable to keep the two points where the foward trajectory crosses zero
+	std::vector<std::string> previousPoint_b(Oscf._size * 2, " ");		// Variable to keep the two points where the backward trajectory crosses zero
+
+
 	std::vector<std::string> zeroPoint(Oscf._size * 2, " ");		// Initial point
 
 	/* Variables to create the Keys of the surface's points */
@@ -162,8 +169,16 @@ int main(int argc, char *argv[])
 /* Open the inital Point */
 #pragma region Open first Point
 	key = Surface.keyWrite(Oscf._position, Oscf.calcMomenta());
-	Surface.addPoint(key);														// Create the new point
-	zeroPoint = key;															// Save the Initial point
+	Surface.addPoint(key);											// Create the new point
+	zeroPoint = key;												// Save the Initial point
+	
+	if (std::stof(zeroPoint[3]) == 0.)								// If the initial condition has a zero momenta on the bath then save that point too
+	{
+		savingPoints_f.push_back(zeroPoint);
+		savingPoints_b.push_back(zeroPoint);
+
+		//Surface.savingPointAdd(zeroPoint);							// Just remember the first point does not have a pair because you don't need to interpolate is already zero
+	}
 
 #pragma endregion
 
@@ -206,14 +221,18 @@ int main(int argc, char *argv[])
 		LDTot = LD.MAction(Oscf.calcMomenta(), Oscf._velocity);
 		LDTot[0] *= timeStep;
 		LDTot[1] *= timeStep;
-
+		
+		std::cout << "Forw: " << Oscf._velocity[0] << " " << Oscf._velocity[1] << std::endl;
+		
 		LDList.push_back(LDTot);											// Save it at the end
 
 		/* Backward LD Calculation */
 		LDTot = LD.MAction(Oscb.calcMomenta(), Oscb._velocity);
 		LDTot[0] *= timeStep;
 		LDTot[1] *= timeStep;
-
+		
+		std::cout << "Back: "<< Oscb._velocity[0] << " " << Oscb._velocity[1] << std::endl;
+		
 		LDList.insert(LDList.begin(), LDTot);							// Save it at the begining
 
 #endif
@@ -234,14 +253,27 @@ int main(int argc, char *argv[])
 				Surface.addPoint(keyf);									// Create the new point
 				Surface.openPoint(keyf);								// Open the point
 				openPoints_f.push_back(keyf);							// Include the point in the list of open points
+
+				if (Dynf.doesItCrossZero(Oscf.calcMomenta()[1]))		// If the trajectory crossed zero in the bath momenta from the previous step save those two points
+				{
+					savingPoints_f.push_back(previousPoint_f);
+					savingPoints_f.push_back(keyf);
+
+					//Surface.savingPointAdd(previousPoint_f);			// Because both points are toghether in the list we will be able to know between which two interpolate
+					//Surface.savingPointAdd(keyf);				
+
+				} // we don't need to save this again because same point will always cross zero and will have it values saved.
+
 			}
 			/* And if exist but is not open, open the point again */
 			else if (Surface._pointStatComplete[keyf] == true)
 			{
 				Surface.openPoint(keyf);								// Open the point
 				openPoints_f.push_back(keyf);							// Include the point in the list of open points
-			}
 
+			}
+			
+			previousPoint_f = keyf;										// Actualize the previous point
 #pragma endregion
 
 #pragma region Backward Opening Points
@@ -253,6 +285,15 @@ int main(int argc, char *argv[])
 				Surface.openPoint(keyb);								// Open the point
 				openPoints_b.push_back(keyb);							// Include the point in the list of open points
 
+				if (Dynb.doesItCrossZero(Oscb.calcMomenta()[1]))		// If the trajectory crossed zero in the bath momenta from the previous step save those two points
+				{
+					savingPoints_b.push_back(previousPoint_b);
+					savingPoints_b.push_back(keyb);
+
+					//Surface.savingPointAdd(previousPoint_b);			// Because both points are toghether in the list we will be able to know between which two interpolate
+					//Surface.savingPointAdd(keyb);
+				} // we don't need to save this again because same point will always cross zero and will have it values saved.
+
 			}
 			/* And if exist but is not open, open the point again */
 			else if (Surface._pointStatComplete[keyb] == true)
@@ -260,6 +301,8 @@ int main(int argc, char *argv[])
 				Surface.openPoint(keyb);								// Open the point
 				openPoints_b.push_back(keyb);							// Include the point in the list of open points
 			}
+			
+			previousPoint_b = keyb;										// Actualize the previous point
 
 #pragma endregion
 
@@ -366,9 +409,16 @@ int main(int argc, char *argv[])
 
 /* Once the trj has finished Save the values */
 #pragma region Saving
-	outputFile.open(calc + "_" + std::to_string(I) + "_" + "LD.txt", std::ios::out | std::ios::trunc);
-	Surface.SavePointAver(outputFile);											//Calc the average and print it
-	outputFile.close();
+	//outputFile.open(calc + "_" + std::to_string(I) + "_" + "LD.txt", std::ios::out | std::ios::trunc);
+	//Surface.SavePointAver(outputFile);											//Calc the average and print it
+
+	outputFile_f.open(calc + "_" + std::to_string(I) + "_f_" + "LD.txt", std::ios::out | std::ios::trunc);
+	Surface.SavePointAver(outputFile_f,savingPoints_f);
+	outputFile_f.close();
+
+	outputFile_b.open(calc + "_" + std::to_string(I) + "_b_" + "LD.txt", std::ios::out | std::ios::trunc);
+	Surface.SavePointAver(outputFile_b, savingPoints_b);
+	outputFile_b.close();
 
 #pragma endregion
 
