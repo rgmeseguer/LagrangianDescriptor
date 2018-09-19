@@ -20,6 +20,8 @@ class Dynamics
 	double A, B;							//Temporary variables used for Langevin calculation
 	double sigma;							//
 
+	double previousValue;					// Tool variable to keep track of one of the DoF to check if it crosses zero
+
 public:
 	int _numberStep;						//Total number of steps
 	double _timeStep;						//Time step of the Dynamic
@@ -35,6 +37,7 @@ public:
 	void setTime(double t);					// Set the total time of the Dynamic 
 	void setLangevin(double mu, double beta, double gamma); // Sets the Langeving parameters used for the stochatic Dynamics
 	
+	bool doesItCrossZero(double value);
 
 #if KEY_DETERM
 
@@ -49,7 +52,7 @@ public:
 
 };
 
-Dynamics::Dynamics(){}
+Dynamics::Dynamics() { previousValue = 0; }
 
 /* Functions to initialize the Dynamics */
 #pragma region InitializeDynamics
@@ -144,3 +147,18 @@ void Dynamics::DynamicStep(Oscillator & osc, double rtherm)
 #endif
 
 #pragma endregion
+
+/* Check if the followed property has crossed its zero point */
+bool Dynamics::doesItCrossZero(double value)
+{
+	if (previousValue*value < 0)		// If the value changes sing we crossed zero
+	{
+		previousValue = value;
+		return true;
+	}
+	else								// If not we didnt or the previous value is zero so we are at the first calling of the fucntion
+	{
+		previousValue = value;
+		return false;
+	}
+}
