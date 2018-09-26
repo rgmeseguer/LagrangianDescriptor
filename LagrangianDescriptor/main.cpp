@@ -142,7 +142,7 @@ int main(int argc, char *argv[])
 
 	/* Create the surface of the where the LD values will be saved */
 	LDSurfaceCreator Surface(true);									// Surface creator with selective saving true
-	std::vector<std::vector<std::string>> openPoints_f;				// Tracker of the points at which the LD forward is beig calculated	
+	std::vector<std::vector<std::string>> openPoints;				// Tracker of the points at which the LD forward is beig calculated	
 	std::vector<std::string> previousPoint(Oscf._size * 2, " ");	// Variable to keep the two points where the foward trajectory crosses zero
 
 	std::vector<std::string> zeroPoint(Oscf._size * 2, " ");		// Initial point
@@ -241,7 +241,7 @@ int main(int argc, char *argv[])
 
 				Surface.addPoint(key);									// Create the new point
 				Surface.openPoint(key);								// Open the point
-				openPoints_f.push_back(key);							// Include the point in the list of open points
+				openPoints.push_back(key);							// Include the point in the list of open points
 
 				if (Dynf.doesItCrossZero(Oscf.calcMomenta()[1]))		// If the trajectory crossed zero in the bath momenta from the previous step save those two points
 				{
@@ -255,7 +255,7 @@ int main(int argc, char *argv[])
 			else if (Surface._pointStatComplete[key] == true)
 			{
 				Surface.openPoint(key);								// Open the point
-				openPoints_f.push_back(key);							// Include the point in the list of open points
+				openPoints.push_back(key);							// Include the point in the list of open points
 
 			}
 			
@@ -293,11 +293,11 @@ int main(int argc, char *argv[])
 			else
 			{
 				/* Close points only if there are opened Points */
-				if (openPoints_f.size() >= 1)
+				if (openPoints.size() >= 1)
 				{
 
 					/* Get the first point */
-					key = openPoints_f[0];
+					key = openPoints[0];
 
 					bufferCounter = 0;
 					totLength = 0.;
@@ -318,7 +318,7 @@ int main(int argc, char *argv[])
 
 					/* Close the point */
 					Surface.closePoint(key);
-					openPoints_f.erase(openPoints_f.begin());	//Remove the point from the list
+					openPoints.erase(openPoints.begin());	//Remove the point from the list
 
 				}
 
