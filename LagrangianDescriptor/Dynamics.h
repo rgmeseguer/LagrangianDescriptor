@@ -37,7 +37,7 @@ public:
 	void setTime(double t);					// Set the total time of the Dynamic 
 	void setLangevin(double mu, double beta, double gamma); // Sets the Langeving parameters used for the stochatic Dynamics
 	
-	bool doesItCrossZero(double value);
+	bool doesItCross(double value, double crossing);
 
 #if KEY_DETERM
 
@@ -149,9 +149,12 @@ void Dynamics::DynamicStep(Oscillator & osc, double rtherm)
 #pragma endregion
 
 /* Check if the followed property has crossed its zero point */
-bool Dynamics::doesItCrossZero(double value)
+bool Dynamics::doesItCross(double value, double crossing)
 {
-	if (previousValue*value < 0)		// If the value changes sing we crossed zero
+	double value0 = previousValue - crossing;
+	double value1 = value - crossing;
+	
+	if (value0*value1 < 0)				// If the value changes sign we crossed the crossing point
 	{
 		previousValue = value;
 		return true;

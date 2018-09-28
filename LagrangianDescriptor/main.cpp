@@ -44,10 +44,10 @@ int main(int argc, char *argv[])
 
 /* Check the correct Parameters */
 #pragma region Program Usage
-	if ((argc != 5))
+	if ((argc != 6))
 	{
 		std::cout << "Program Usage" << std::endl;
-		std::cout << "LagD_Trj.out [tau] [bathMass] [TrjTime > (2xtau+1)] [Trj Number]" << std::endl;
+		std::cout << "LagD_Trj.out [tau] [bathMass] [TrjTime > (2xtau+1)] [Crossing Point] [Trj Number] " << std::endl;
 		return 1;
 	}
 #pragma endregion
@@ -57,7 +57,8 @@ int main(int argc, char *argv[])
 	double tau = strtof(argv[1], NULL);								// Tau value
 	double bathMass = strtof(argv[2], NULL);						// Mass of the Bath
 	double TrjTime = strtof(argv[3], NULL);							// Time of the Trj
-	int I = int(strtof(argv[4], NULL));								// Number of the trajectory
+	double crossPoint = strtof(argv[4], NULL);						// Point at wich the crossing trj is saved
+	int I = int(strtof(argv[5], NULL));								// Number of the trajectory
 #pragma endregion
 
 /* Set Variables for writing the output files */
@@ -112,12 +113,16 @@ int main(int argc, char *argv[])
 	To do so, we need to initialize 2 Oscillators and 2 Dynamics*/
 
 	/* Initialize the Oscillators */
+#pragma region Oscillator Variables
 	Oscf.setInitP(R0, true);										// Initiate at the shadle point
 	Oscf.setInitialVel_NVE(Energy, I, 4);							// Set initial Random Velocities to keep energy
 	Oscb.setInitP(R0, true);										// Initiate at the shadle point
 	Oscb.setInitialVel_NVE(Energy, I, 4);							// Set initial Random Velocities to keep energy
 
-	/* Initialize the dynamics */
+#pragma endregion
+
+/* Initialize the dynamics */
+#pragma region Dynamics Variables
 	Dynamics Dynf;													// Set the forward Dynamic							
 	Dynf.setTimeStep(timeStep);										// Set the Time step
 	Dynf.setTime(TrjTime);											// and the total time (nsteps = totalTime/timeTtep)
@@ -125,7 +130,7 @@ int main(int argc, char *argv[])
 	Dynb.setTimeStep(-1 * timeStep);								// Set the Time step
 	Dynb.setTime(TrjTime);											// and the total time (nsteps = totalTime/timeTtep)
 	bool growingState = true;										// state of the trj growing or updating
-
+	
 	/* Variables fot the Stochastic Dynamics */
 #if KEY_DETERM==0													
 	double beta = 4.;												// Effective temperature
@@ -137,11 +142,14 @@ int main(int argc, char *argv[])
 	double rtherm;
 #endif
 
+#pragma endregion
+
+
 	/* Initialize the Lagrangian Descriptor Object*/
 	LagDesc LD;														// Lagrangian Descriptor variable
 
 	/* Create the surface of the where the LD values will be saved */
-	LDSurfaceCreator Surface(true);									// Surface creator with selective saving true
+	LDSurfaceCreator Surface(true);									// Surface creator with selective saving false
 	std::vector<std::vector<std::string>> openPoints;				// Tracker of the points at which the LD forward is beig calculated	
 	std::vector<std::string> previousPoint(Oscf._size * 2, " ");	// Variable to keep the two points where the foward trajectory crosses zero
 
@@ -152,10 +160,10 @@ int main(int argc, char *argv[])
 
 
 	/* Surface Variables Required to Udate the Points */
-	std::vector<std::vector<double>> LDList;					// Buffer of the LD value at each step
-	std::vector<double> LDTot = { 0.,0. };						// Buffer of the LD value
-	double totLength = 0.;										// Lenght of the Buffers
-	int bufferCounter = 0;										// Counter to follow the values we need to remove from the buffer
+	std::vector<std::vector<double>> LDList;						// Buffer of the LD value at each step
+	std::vector<double> LDTot = { 0.,0. };							// Buffer of the LD value
+	double totLength = 0.;											// Lenght of the Buffers
+	int bufferCounter = 0;											// Counter to follow the values we need to remove from the buffer
 #pragma endregion
 
 /* Open the inital Point */
@@ -164,9 +172,13 @@ int main(int argc, char *argv[])
 	Surface.addPoint(key);											// Create the new point
 	zeroPoint = key;												// Save the Initial point
 	
-	if (std::stof(zeroPoint[3]) == 0.)								// If the initial condition has a zero momenta on the bath then save that point too
+	/* If we have activated the selective saving and
+	 the initial condition has a zero momenta on the
+	 bath then save that point too */
+	if (Surface.selectiveSaving && std::stof(zeroPoint[3]) == 0.)								
 	{
-		Surface.savingPointAdd(zeroPoint);							// Just remember the first point does not have a pair because you don't need to interpolate is already zero
+		//Surface.savingPointAdd(zeroPoint);							// Just remember the first point does not have a pair because you don't need to interpolate is already zero
+		Dynf.doesItCross(Oscf.calcMomenta()[1], crossPoint);		// Call the function once to get the previous value saved
 	}
 
 #pragma endregion
@@ -243,7 +255,10 @@ int main(int argc, char *argv[])
 				Surface.openPoint(key);								// Open the point
 				openPoints.push_back(key);							// Include the point in the list of open points
 
-				if (Dynf.doesItCrossZero(Oscf.calcMomenta()[1]))		// If the trajectory crossed zero in the bath momenta from the previous step save those two points
+				/* If we have activated the selective saving and
+				the trajectory crossed the crossPoint in the bath momenta 
+				from the previous step save those two points */
+				if (Surface.selectiveSaving && Dynf.doesItCross(Oscf.calcMomenta()[1], crossPoint))
 				{
 					Surface.savingPointAdd(previousPoint);			// Because both points are toghether in the list we will be able to know between which two interpolate
 					Surface.savingPointAdd(key);				
@@ -284,7 +299,6 @@ int main(int argc, char *argv[])
 				}
 				/* Save the Value of the point */
 				Surface._LDallPoints[zeroPoint].push_back(LDTot);
-
 				Surface.closePoint(zeroPoint);
 			}
 #pragma endregion

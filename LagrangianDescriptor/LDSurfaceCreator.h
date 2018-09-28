@@ -13,15 +13,14 @@ define out LD surface. */
 
 class LDSurfaceCreator
 {
-	std::vector<std::vector<std::string>> _location;		// List of locations created in the map
+	std::vector<std::vector<std::string>> _location;	// List of locations created in the map
+	std::vector<std::vector<std::string>> _savingLoc;	// List of saving locations
 	
-	bool selectiveSaving;									// Decide if we want to save every point or those that cross zero in the followed DoF
-	std::vector<std::vector<std::string>> _savingLoc;		// List of saving locations
-
 
 public:
 	LDSurfaceCreator(bool);
-	
+	bool selectiveSaving;																// Decide if we want to save every point or those that cross zero in the followed DoF
+
 	/* Variables for storing values */
 	std::map<std::vector<std::string>, std::vector<std::vector<double>>> _LDallPoints;	// Vector of LD values of a point 
 	std::map<std::vector<std::string>, std::vector<double>> _LDavPoints;				// Average value of the LD of a point
@@ -33,11 +32,11 @@ public:
 	void savingPointAdd(std::vector<std::string>);										// Adds one point to the list of saving points
 
 	/* Functions to create the points */
-	void addPoint(std::vector<std::string>);														// Create a new point using its "location" as a key
-	void openPoint(std::vector<std::string>);														// Opens an existing point
-	void closePoint(std::vector<std::string>);														// Closes an opened point
-	void SavePointAver(std::ofstream&);		// Calculates the average of the points and saves them
-	bool doesKeyExist(std::vector<std::string>);													// Check the existence of a key
+	void addPoint(std::vector<std::string>);											// Create a new point using its "location" as a key
+	void openPoint(std::vector<std::string>);											// Opens an existing point
+	void closePoint(std::vector<std::string>);											// Closes an opened point
+	void SavePointAver(std::ofstream&);													// Calculates the average of the points and saves them
+	bool doesKeyExist(std::vector<std::string>);										// Check the existence of a key
 
 	std::vector<std::string> keyWrite(std::vector<double>, std::vector<double>);		// Write the key in the correct format
 
