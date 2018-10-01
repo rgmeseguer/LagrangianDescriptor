@@ -14,12 +14,13 @@ define out LD surface. */
 class LDSurfaceCreator
 {
 	std::vector<std::vector<std::string>> _location;	// List of locations created in the map
-	std::vector<std::vector<std::string>> _savingLoc;	// List of saving locations
+	
 	
 
 public:
 	LDSurfaceCreator(bool);
 	bool selectiveSaving;																// Decide if we want to save every point or those that cross zero in the followed DoF
+	std::vector<std::vector<std::string>> _savingLoc;	// List of saving locations
 
 	/* Variables for storing values */
 	std::map<std::vector<std::string>, std::vector<std::vector<double>>> _LDallPoints;	// Vector of LD values of a point 
@@ -111,7 +112,7 @@ void LDSurfaceCreator::SavePointAver(std::ofstream &sfile)
 	{
 		for (size_t i = 0; i < _savingLoc.size(); i++)				//Run over all the keys created
 		{
-			std::vector<std::string> key = _savingLoc[i];			//Get the key					
+			std::vector<std::string> key = _savingLoc[i];			//Get the key	
 
 #pragma region Average Calculation
 

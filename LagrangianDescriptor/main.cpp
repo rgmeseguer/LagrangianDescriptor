@@ -121,7 +121,7 @@ int main(int argc, char *argv[])
 
 #pragma endregion
 
-/* Initialize the dynamics */
+	/* Initialize the dynamics */
 #pragma region Dynamics Variables
 	Dynamics Dynf;													// Set the forward Dynamic							
 	Dynf.setTimeStep(timeStep);										// Set the Time step
@@ -143,12 +143,9 @@ int main(int argc, char *argv[])
 #endif
 
 #pragma endregion
-
-
-	/* Initialize the Lagrangian Descriptor Object*/
-	LagDesc LD;														// Lagrangian Descriptor variable
-
+	
 	/* Create the surface of the where the LD values will be saved */
+#pragma region Surface Variables
 	LDSurfaceCreator Surface(true);									// Surface creator with selective saving false
 	std::vector<std::vector<std::string>> openPoints;				// Tracker of the points at which the LD forward is beig calculated	
 	std::vector<std::string> previousPoint(Oscf._size * 2, " ");	// Variable to keep the two points where the foward trajectory crosses zero
@@ -166,11 +163,19 @@ int main(int argc, char *argv[])
 	int bufferCounter = 0;											// Counter to follow the values we need to remove from the buffer
 #pragma endregion
 
+
+	/* Initialize the Lagrangian Descriptor Object*/
+	LagDesc LD;														// Lagrangian Descriptor variable
+
+#pragma endregion
+
 /* Open the inital Point */
 #pragma region Open first Point
 	key = Surface.keyWrite(Oscf._position, Oscf.calcMomenta());
 	Surface.addPoint(key);											// Create the new point
+	Surface.openPoint(key);											// Open the point
 	zeroPoint = key;												// Save the Initial point
+	previousPoint = key;											// Set the first previous point
 	
 	/* If we have activated the selective saving and
 	 the initial condition has a zero momenta on the
@@ -178,7 +183,7 @@ int main(int argc, char *argv[])
 	if (Surface.selectiveSaving && std::stof(zeroPoint[3]) == 0.)								
 	{
 		//Surface.savingPointAdd(zeroPoint);							// Just remember the first point does not have a pair because you don't need to interpolate is already zero
-		Dynf.doesItCross(Oscf.calcMomenta()[1], crossPoint);		// Call the function once to get the previous value saved
+		Dynf.doesItCross(Oscf.calcMomenta()[1], crossPoint);			// Call the function once to get the previous value saved
 	}
 
 #pragma endregion
@@ -244,21 +249,20 @@ int main(int argc, char *argv[])
 /* At every step Open those points that require to do so */
 #pragma region Open Points
 
-	/* Open new point only until reach Time-tau otherwise we will have unfinished points */
+		/* Open new point only until reach Time-tau otherwise we will have unfinished points */
 		if (j*Dynf._timeStep < Dynf._numberStep*Dynf._timeStep - tau)
 		{
 			/* If the key does not exist create a new one */
 			if (Surface.doesKeyExist(key) == false)
 			{
-
-				Surface.addPoint(key);									// Create the new point
+				Surface.addPoint(key);								// Create the new point
 				Surface.openPoint(key);								// Open the point
 				openPoints.push_back(key);							// Include the point in the list of open points
 
 				/* If we have activated the selective saving and
 				the trajectory crossed the crossPoint in the bath momenta 
 				from the previous step save those two points */
-				if (Surface.selectiveSaving && Dynf.doesItCross(Oscf.calcMomenta()[1], crossPoint))
+				if (Surface.selectiveSaving && Dynf.doesItCross(stof(key[3]), crossPoint))
 				{
 					Surface.savingPointAdd(previousPoint);			// Because both points are toghether in the list we will be able to know between which two interpolate
 					Surface.savingPointAdd(key);				
@@ -271,11 +275,9 @@ int main(int argc, char *argv[])
 			{
 				Surface.openPoint(key);								// Open the point
 				openPoints.push_back(key);							// Include the point in the list of open points
-
 			}
 			
-			previousPoint = key;										// Actualize the previous point
-
+			previousPoint = key;									// Actualize the previous point
 		}
 
 
@@ -297,6 +299,7 @@ int main(int argc, char *argv[])
 				{
 					for (size_t k = 0; k < 2; k++) { LDTot[k] += LDList[i][k]; }
 				}
+				
 				/* Save the Value of the point */
 				Surface._LDallPoints[zeroPoint].push_back(LDTot);
 				Surface.closePoint(zeroPoint);
@@ -309,7 +312,6 @@ int main(int argc, char *argv[])
 				/* Close points only if there are opened Points */
 				if (openPoints.size() >= 1)
 				{
-
 					/* Get the first point */
 					key = openPoints[0];
 

@@ -20,7 +20,7 @@ class Dynamics
 	double A, B;							//Temporary variables used for Langevin calculation
 	double sigma;							//
 
-	double previousValue;					// Tool variable to keep track of one of the DoF to check if it crosses zero
+	double _previousValue;					// Tool variable to keep track of one of the DoF to check if it crosses zero
 
 public:
 	int _numberStep;						//Total number of steps
@@ -52,7 +52,7 @@ public:
 
 };
 
-Dynamics::Dynamics() { previousValue = 0; }
+Dynamics::Dynamics() { _previousValue = 0; }
 
 /* Functions to initialize the Dynamics */
 #pragma region InitializeDynamics
@@ -151,17 +151,17 @@ void Dynamics::DynamicStep(Oscillator & osc, double rtherm)
 /* Check if the followed property has crossed its zero point */
 bool Dynamics::doesItCross(double value, double crossing)
 {
-	double value0 = previousValue - crossing;
+	double value0 = _previousValue - crossing;
 	double value1 = value - crossing;
 	
 	if (value0*value1 < 0)				// If the value changes sign we crossed the crossing point
 	{
-		previousValue = value;
+		_previousValue = value;
 		return true;
 	}
 	else								// If not we didnt or the previous value is zero so we are at the first calling of the fucntion
 	{
-		previousValue = value;
+		_previousValue = value;
 		return false;
 	}
 }
