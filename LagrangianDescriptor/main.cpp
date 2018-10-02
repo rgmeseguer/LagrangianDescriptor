@@ -180,7 +180,7 @@ int main(int argc, char *argv[])
 	/* If we have activated the selective saving and
 	 the initial condition has a zero momenta on the
 	 bath then save that point too */
-	if (Surface.selectiveSaving && std::stof(zeroPoint[3]) == 0.)								
+	if (Surface.selectiveSaving)
 	{
 		//Surface.savingPointAdd(zeroPoint);							// Just remember the first point does not have a pair because you don't need to interpolate is already zero
 		Dynf.doesItCross(Oscf.calcMomenta()[1], crossPoint);			// Call the function once to get the previous value saved
@@ -264,6 +264,7 @@ int main(int argc, char *argv[])
 				from the previous step save those two points */
 				if (Surface.selectiveSaving && Dynf.doesItCross(stof(key[3]), crossPoint))
 				{
+					//std::cout << previousPoint[1] << " " << previousPoint[3] << " " << key[1] << " " << key[3] << " " << j << std::endl;
 					Surface.savingPointAdd(previousPoint);			// Because both points are toghether in the list we will be able to know between which two interpolate
 					Surface.savingPointAdd(key);				
 
