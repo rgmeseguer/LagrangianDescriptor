@@ -44,11 +44,20 @@ int main(int argc, char *argv[])
 
 /* Check the correct Parameters */
 #pragma region Program Usage
-	if ((argc != 6))
+	bool selecSaving;
+	if ((argc == 5))
+	{
+		selecSaving = false;
+	}
+	else if ((argc != 6))
 	{
 		std::cout << "Program Usage" << std::endl;
-		std::cout << "LagD_Trj.out [tau] [bathMass] [TrjTime > (2xtau+1)] [Crossing Point] [Trj Number] " << std::endl;
+		std::cout << "LagD_Trj.out [tau] [bathMass] [TrjTime > (2xtau+1)] [Trj Number] [Crossing Point]" << std::endl;
 		return 1;
+	}
+	else
+	{
+		selecSaving = true;
 	}
 #pragma endregion
 
@@ -57,15 +66,20 @@ int main(int argc, char *argv[])
 	double tau = strtof(argv[1], NULL);								// Tau value
 	double bathMass = strtof(argv[2], NULL);						// Mass of the Bath
 	double TrjTime = strtof(argv[3], NULL);							// Time of the Trj
-	double crossPoint = strtof(argv[4], NULL);						// Point at wich the crossing trj is saved
-	int I = int(strtof(argv[5], NULL));								// Number of the trajectory
+	int I = int(strtof(argv[4], NULL));								// Number of the trajectory
+	double crossPoint;												// Point at wich the crossing trj is saved
+	if (selecSaving)
+	{
+		crossPoint = strtof(argv[5], NULL);					
+	}
+	
 #pragma endregion
 
 /* Set Variables for writing the output files */
 #pragma region Variables for printing
 	std::string BthM, stau;																						//String version of tau and Mass
 	std::stringstream stream;																					//Temporary string
-	std::ofstream outputFile;														//Saving file
+	std::ofstream outputFile;																					//Saving file
 
 
 	/* Print the bath mass in the correct format  */
@@ -146,7 +160,7 @@ int main(int argc, char *argv[])
 	
 	/* Create the surface of the where the LD values will be saved */
 #pragma region Surface Variables
-	LDSurfaceCreator Surface(true);									// Surface creator with selective saving false
+	LDSurfaceCreator Surface(selecSaving);							// Surface creator with selective saving false
 	std::vector<std::vector<std::string>> openPoints;				// Tracker of the points at which the LD forward is beig calculated	
 	std::vector<std::string> previousPoint(Oscf._size * 2, " ");	// Variable to keep the two points where the foward trajectory crosses zero
 

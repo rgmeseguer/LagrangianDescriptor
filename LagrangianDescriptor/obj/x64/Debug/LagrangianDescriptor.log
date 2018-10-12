@@ -1,159 +1,166 @@
 ﻿  Validating sources
-  Copying sources remotely to 'bluecrystalp3.bris.ac.uk'
+  Copying sources remotely to 'bluecrystalp3.acrc.bris.ac.uk'
   Validating architecture
   Starting remote build
   Compiling sources:
   main.cpp
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(96): warning : ignoring #pragma region Average [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(96): warning :  #pragma region Average Calculation
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(112): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(112): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(87): warning : ignoring #pragma region SetInitCond [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(87): warning :  #pragma region SetInitCond
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(124): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(124): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(127): warning : ignoring #pragma region CalcProp [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(127): warning :  #pragma region CalcProp
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(180): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(180): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(183): warning : ignoring #pragma region KeepEnergy [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(183): warning :  #pragma region KeepEnergy
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(191): warning : ignoring #pragma region Select [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(191): warning :  #pragma region Select the direction of the system and the bath
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(223): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(223): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(248): warning : ignoring #pragma region Initial [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(248): warning :  #pragma region Initial Conditions
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(265): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(265): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(325): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(325): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(55): warning : ignoring #pragma region InitializeDynamics [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(55): warning :  #pragma region InitializeDynamics
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(87): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(87): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(92): warning : ignoring #pragma region DynamicStep [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(92): warning :  #pragma region DynamicStep
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(146): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(146): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(46): warning : ignoring #pragma region Program [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(46): warning :  #pragma region Program Usage
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(53): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(53): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(56): warning : ignoring #pragma region Input [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(56): warning :  #pragma region Input variables
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(61): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(61): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(64): warning : ignoring #pragma region Variables [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(64): warning :  #pragma region Variables for printing
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(87): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(87): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(90): warning : ignoring #pragma region System [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(90): warning :  #pragma region System Initial Conditions and Variables
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(156): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(156): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(160): warning : ignoring #pragma region Open [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(160): warning :  #pragma region Open first Point
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(165): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(165): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(173): warning : ignoring #pragma region Dynamic [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(173): warning :  #pragma region Dynamic Step
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(184): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(184): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(187): warning : ignoring #pragma region Key [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(187): warning :  #pragma region Key Write
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(193): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(193): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(196): warning : ignoring #pragma region Lagrangian [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(196): warning :  #pragma region Lagrangian Descriptor Calculation
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(216): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(216): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(219): warning : ignoring #pragma region Open [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(219): warning :  #pragma region Open Points
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(224): warning : ignoring #pragma region Forward [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(224): warning :  #pragma region Forward Opening Points
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(240): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(240): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(242): warning : ignoring #pragma region Backward [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(242): warning :  #pragma region Backward Opening Points
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(259): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(259): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(262): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(262): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(265): warning : ignoring #pragma region Closing [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(265): warning :  #pragma region Closing Points
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(269): warning : ignoring #pragma region Close [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(269): warning :  #pragma region Close the Initial Point
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(282): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(282): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(284): warning : ignoring #pragma region Close [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(284): warning :  #pragma region Close the Points
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(288): warning : ignoring #pragma region Forward [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(288): warning :  #pragma region Forward Closing
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(313): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(313): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(315): warning : ignoring #pragma region Backward [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(315): warning :  #pragma region Backward Closing
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(340): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(340): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(343): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(343): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(346): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(346): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(350): warning : ignoring #pragma region Saving [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(350): warning :  #pragma region Saving
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(354): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(354): warning :  #pragma endregion
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(86,9): warning : conversion to ‘int’ from ‘long int’ may alter its value [-Wconversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(86,9): warning :   j = iy / NDIV;         //Will be in the range 0..NTAB - 1.
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(86,9): warning :          ^
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,19): warning : conversion to ‘double’ from ‘long int’ may alter its value [-Wconversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,19): warning :   if ((temp = AM * iy) > RNMX) return RNMX;
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,19): warning :                    ^~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(22,19): warning : conversion to ‘float’ alters ‘double’ constant value [-Wfloat-conversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(22,19): warning :  #define RNMX (1.0 - EPS)
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(22,19): warning :               ~~~~~^~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,38): message : in expansion of macro ‘RNMX’
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,38): message :   if ((temp = AM * iy) > RNMX) return RNMX;
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,38): message :                                       ^~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,14): warning : conversion to ‘float’ from ‘double’ may alter its value [-Wfloat-conversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,14): warning :   else return temp;
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,14): warning :               ^~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(140,23): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(140,23): warning :   for (size_t i = 0; i < nstep; i += 2)
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(140,23): warning :                      ~~^~~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(149,20): warning : conversion to ‘__gnu_cxx::__alloc_traits<std::allocator<double> >::value_type {aka double}’ from ‘long double’ may alter its value [-Wfloat-conversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(149,20): warning :    gasdev[i] = term * cos(2 * M_PIl * u2);
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(149,20): warning :                ~~~~~^~~~~~~~~~~~~~~~~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(150,24): warning : conversion to ‘__gnu_cxx::__alloc_traits<std::allocator<double> >::value_type {aka double}’ from ‘long double’ may alter its value [-Wfloat-conversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(150,24): warning :    gasdev[i + 1] = term * sin(2 * M_PIl * u2);
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(150,24): warning :                    ~~~~~^~~~~~~~~~~~~~~~~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(130,26): warning : conversion to ‘int’ from ‘std::vector<double>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(130,26): warning :   int size = position.size();
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(130,26): warning :              ~~~~~~~~~~~~~^~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(135,23): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(135,23): warning :   for (size_t i = 0; i < size; i++)
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(135,23): warning :                      ~~^~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(307,12): warning : conversion to ‘unsigned int’ from ‘time_t {aka long int}’ may alter its value [-Wconversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(307,12): warning :   srand(time(NULL));
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(307,12): warning :         ~~~~^~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(311,48): warning : conversion to ‘float’ from ‘double’ may alter its value [-Wfloat-conversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(311,48): warning :   double kinBath = ut.RandomFloat(0., kineticTot);
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(311,48): warning :                                                 ^
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(71,24): warning : conversion to ‘int’ from ‘double’ may alter its value [-Wfloat-conversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(71,24): warning :   _numberStep = ut.absol(int(t / _timeStep));
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(71,24): warning :                 ~~~~~~~~^~~~~~~~~~~~~~~~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(100,12): warning : conversion to ‘unsigned int’ from ‘time_t {aka long int}’ may alter its value [-Wconversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(100,12): warning :   srand(time(NULL));            // Initialize the random seed
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(100,12): warning :         ~~~~^~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(168,23): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(168,23): warning :   for (size_t j = 0; j < Dynf._numberStep; j++)
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(168,23): warning :                      ~~^~~~~~~~~~~~~~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(170,30): warning : conversion to ‘double’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(170,30): warning :    if (growingState && j*Dynf._timeStep >= tau) { growingState = false; } // Once we reach time tau points begin to close
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(170,30): warning :                               ^~~~~~~~~
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(222,14): warning : conversion to ‘double’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(222,14): warning :    if (j*Dynf._timeStep < Dynf._numberStep*Dynf._timeStep - tau)
-C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(222,14): warning :               ^~~~~~~~~
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(117): warning : ignoring #pragma region Average [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(117): warning :  #pragma region Average Calculation
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(133): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(133): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(152): warning : ignoring #pragma region Average [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(152): warning :  #pragma region Average Calculation
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(168): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(168): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(87): warning : ignoring #pragma region SetInitCond [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(87): warning :  #pragma region SetInitCond
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(124): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(124): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(127): warning : ignoring #pragma region CalcProp [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(127): warning :  #pragma region CalcProp
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(180): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(180): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(183): warning : ignoring #pragma region KeepEnergy [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(183): warning :  #pragma region KeepEnergy
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(194): warning : ignoring #pragma region Select [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(194): warning :  #pragma region Select the direction of the system and the bath
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(226): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(226): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(257): warning : ignoring #pragma region Initial [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(257): warning :  #pragma region Initial Conditions
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(274): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(274): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(334): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(334): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(58): warning : ignoring #pragma region InitializeDynamics [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(58): warning :  #pragma region InitializeDynamics
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(90): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(90): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(95): warning : ignoring #pragma region DynamicStep [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(95): warning :  #pragma region DynamicStep
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(149): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(149): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(46): warning : ignoring #pragma region Program [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(46): warning :  #pragma region Program Usage
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(62): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(62): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(65): warning : ignoring #pragma region Input [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(65): warning :  #pragma region Input variables
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(76): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(76): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(79): warning : ignoring #pragma region Variables [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(79): warning :  #pragma region Variables for printing
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(102): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(102): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(105): warning : ignoring #pragma region System [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(105): warning :  #pragma region System Initial Conditions
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(121): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(121): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(124): warning : ignoring #pragma region Process [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(124): warning :  #pragma region Process Required Variables
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(130): warning : ignoring #pragma region Oscillator [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(130): warning :  #pragma region Oscillator Variables
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(136): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(136): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(139): warning : ignoring #pragma region Dynamics [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(139): warning :  #pragma region Dynamics Variables
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(159): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(159): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(162): warning : ignoring #pragma region Surface [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(162): warning :  #pragma region Surface Variables
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(178): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(178): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(184): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(184): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(187): warning : ignoring #pragma region Open [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(187): warning :  #pragma region Open first Point
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(203): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(203): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(212): warning : ignoring #pragma region Dynamic [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(212): warning :  #pragma region Dynamic Step
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(226): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(226): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(229): warning : ignoring #pragma region Key [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(229): warning :  #pragma region Key Write
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(233): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(233): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(236): warning : ignoring #pragma region Lagrangian [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(236): warning :  #pragma region Lagrangian Descriptor Calculation
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(261): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(261): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(264): warning : ignoring #pragma region Open [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(264): warning :  #pragma region Open Points
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(299): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(299): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(302): warning : ignoring #pragma region Closing [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(302): warning :  #pragma region Closing Points
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(306): warning : ignoring #pragma region Close [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(306): warning :  #pragma region Close the Initial Point
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(322): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(322): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(324): warning : ignoring #pragma region Close [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(324): warning :  #pragma region Close the Points
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(357): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(357): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(360): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(360): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(364): warning : ignoring #pragma region Saving [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(364): warning :  #pragma region Saving
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(372): warning : ignoring #pragma endregion  [-Wunknown-pragmas]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(372): warning :  #pragma endregion
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(86,9): warning : conversion to 'int' from 'long int' may alter its value [-Wconversion]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(86,9): warning :   j = iy / NDIV;         //Will be in the range 0..NTAB - 1.
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(86,9): warning :          ^
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,19): warning : conversion to 'double' from 'long int' may alter its value [-Wconversion]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,19): warning :   if ((temp = AM * iy) > RNMX) return RNMX;
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,19): warning :                    ^~
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(22,19): warning : conversion to 'float' alters 'double' constant value [-Wfloat-conversion]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(22,19): warning :  #define RNMX (1.0 - EPS)
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(22,19): warning :               ~~~~~^~~~~~
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,38): message : in expansion of macro 'RNMX'
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,38): message :   if ((temp = AM * iy) > RNMX) return RNMX;
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(90,38): message :                                       ^~~~
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,14): warning : conversion to 'float' from 'double' may alter its value [-Wfloat-conversion]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,14): warning :   else return temp;
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(91,14): warning :               ^~~~
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(140,23): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(140,23): warning :   for (size_t i = 0; i < nstep; i += 2)
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(140,23): warning :                      ~~^~~~~~~
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(149,20): warning : conversion to '__gnu_cxx::__alloc_traits<std::allocator<double> >::value_type {aka double}' from 'long double' may alter its value [-Wfloat-conversion]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(149,20): warning :    gasdev[i] = term * cos(2 * M_PIl * u2);
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(149,20): warning :                ~~~~~^~~~~~~~~~~~~~~~~~~~~
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(150,24): warning : conversion to '__gnu_cxx::__alloc_traits<std::allocator<double> >::value_type {aka double}' from 'long double' may alter its value [-Wfloat-conversion]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(150,24): warning :    gasdev[i + 1] = term * sin(2 * M_PIl * u2);
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\utilities.h(150,24): warning :                    ~~~~~^~~~~~~~~~~~~~~~~~~~~
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(188,26): warning : conversion to 'int' from 'std::vector<double>::size_type {aka long unsigned int}' may alter its value [-Wconversion]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(188,26): warning :   int size = position.size();
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(188,26): warning :              ~~~~~~~~~~~~~^~
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(193,23): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(193,23): warning :   for (size_t i = 0; i < size; i++)
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\LDSurfaceCreator.h(193,23): warning :                      ~~^~~~~~
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(190,28): warning : conversion to 'int' from 'double' may alter its value [-Wfloat-conversion]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(190,28): warning :   int precission = ut.powerd(10, scale);
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(190,28): warning :                    ~~~~~~~~~^~~~~~~~~~~
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(316,12): warning : conversion to 'unsigned int' from 'time_t {aka long int}' may alter its value [-Wconversion]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(316,12): warning :   srand(time(NULL));
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(316,12): warning :         ~~~~^~~~~~
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(321,48): warning : conversion to 'float' from 'double' may alter its value [-Wfloat-conversion]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(321,48): warning :   double kinBath = ut.RandomFloat(0., kineticTot);
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Oscillator.h(321,48): warning :                                                 ^
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(74,24): warning : conversion to 'int' from 'double' may alter its value [-Wfloat-conversion]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(74,24): warning :   _numberStep = ut.absol(int(t / _timeStep));
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\Dynamics.h(74,24): warning :                 ~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(115,12): warning : conversion to 'unsigned int' from 'time_t {aka long int}' may alter its value [-Wconversion]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(115,12): warning :   srand(time(NULL));            // Initialize the random seed
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(115,12): warning :         ~~~~^~~~~~
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(206,23): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(206,23): warning :   for (size_t j = 0; j < Dynf._numberStep; j++)
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(206,23): warning :                      ~~^~~~~~~~~~~~~~~~~~
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(209,30): warning : conversion to 'double' from 'size_t {aka long unsigned int}' may alter its value [-Wconversion]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(209,30): warning :    if (growingState && j*Dynf._timeStep >= tau) { growingState = false; }
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(209,30): warning :                               ^~~~~~~~~
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(267,14): warning : conversion to 'double' from 'size_t {aka long unsigned int}' may alter its value [-Wconversion]
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(267,14): warning :    if (j*Dynf._timeStep < Dynf._numberStep*Dynf._timeStep - tau)
+D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\main.cpp(267,14): warning :               ^~~~~~~~~
   Linking objects
-  LagrangianDescriptor.vcxproj -> C:\Users\rg17191\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\bin\x64\Debug\LagrangianDescriptor.out
+  LagrangianDescriptor.vcxproj -> D:\OneDrive\OneDrive - Personal\OneDrive\REPOS\LagrangianDescriptor\LagrangianDescriptor\bin\x64\Debug\LagrangianDescriptor.out
