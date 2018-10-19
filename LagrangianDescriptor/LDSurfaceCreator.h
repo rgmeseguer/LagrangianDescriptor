@@ -145,6 +145,7 @@ void LDSurfaceCreator::SavePointAver(std::ofstream &sfile)
 	}
 	else
 	{
+		int tmp = _location.size();
 		for (size_t i = 0; i < _location.size(); i++)				//Run over all the keys created
 		{
 			std::vector<std::string> key = _location[i];			//Get the key					

@@ -39,20 +39,24 @@ std::vector<double> DOS_G(std::vector<double> coeff, std::vector<double> r)
 	return grad;
 }
 
+void programUsage()
+{
+	std::cout << "Program Usage" << std::endl;
+	std::cout << "LagD_Trj.out [tau] [bathMass] [TrjTime > (2xtau+1)] [Trj Number] [Direction {-1,1}] [[Crossing Point]]" << std::endl;
+}
 int main(int argc, char *argv[])
 {
 
 /* Check the correct Parameters */
 #pragma region Program Usage
 	bool selecSaving;
-	if ((argc == 5))
+	if ((argc == 6))
 	{
 		selecSaving = false;
 	}
-	else if ((argc != 6))
+	else if ((argc != 7))
 	{
-		std::cout << "Program Usage" << std::endl;
-		std::cout << "LagD_Trj.out [tau] [bathMass] [TrjTime > (2xtau+1)] [Trj Number] [Crossing Point]" << std::endl;
+		programUsage();
 		return 1;
 	}
 	else
@@ -67,12 +71,12 @@ int main(int argc, char *argv[])
 	double bathMass = strtof(argv[2], NULL);						// Mass of the Bath
 	double TrjTime = strtof(argv[3], NULL);							// Time of the Trj
 	int I = int(strtof(argv[4], NULL));								// Number of the trajectory
+	int direction = int(strtof(argv[5], NULL));						// Direction of the time Step
 	double crossPoint;												// Point at wich the crossing trj is saved
 	if (selecSaving)
 	{
-		crossPoint = strtof(argv[5], NULL);					
+		crossPoint = strtof(argv[6], NULL);					
 	}
-	
 #pragma endregion
 
 /* Set Variables for writing the output files */
@@ -116,7 +120,7 @@ int main(int argc, char *argv[])
 
 	std::vector<double> R0 = { 1.36561 ,2.161769 };					// Initial Position
 	double Energy = 3.691966889;									// Energy of the system
-	double timeStep = 1.e-3;										// Set the Time Step/Precision of the Dynamic
+	double timeStep = 1.e-3 ;										// Set the Time Step/Precision of the Dynamic multiply by the direction
 
 #pragma endregion
 
@@ -138,10 +142,10 @@ int main(int argc, char *argv[])
 	/* Initialize the dynamics */
 #pragma region Dynamics Variables
 	Dynamics Dynf;													// Set the forward Dynamic							
-	Dynf.setTimeStep(timeStep);										// Set the Time step
+	Dynf.setTimeStep(timeStep * direction);							// Set the Time step
 	Dynf.setTime(TrjTime);											// and the total time (nsteps = totalTime/timeTtep)
 	Dynamics Dynb;													// Set the backward Dynamic
-	Dynb.setTimeStep(-1 * timeStep);								// Set the Time step
+	Dynb.setTimeStep(-1 * timeStep * direction);					// Set the Time step
 	Dynb.setTime(TrjTime);											// and the total time (nsteps = totalTime/timeTtep)
 	bool growingState = true;										// state of the trj growing or updating
 	
@@ -206,7 +210,7 @@ int main(int argc, char *argv[])
 	for (size_t j = 0; j < Dynf._numberStep; j++)
 	{
 		/* Once we reach time tau points begin to close opened Points and the Backwar Trj Stops */ 
-		if (growingState && j*Dynf._timeStep >= tau) { growingState = false; } 
+		if (growingState && j*timeStep >= tau) { growingState = false; } 
 
 /* Perform a Dinamic Step in forward and backward direction */
 #pragma region Dynamic Step
@@ -264,7 +268,7 @@ int main(int argc, char *argv[])
 #pragma region Open Points
 
 		/* Open new point only until reach Time-tau otherwise we will have unfinished points */
-		if (j*Dynf._timeStep < Dynf._numberStep*Dynf._timeStep - tau)
+		if (j*timeStep < Dynf._numberStep*timeStep - tau)
 		{
 			/* If the key does not exist create a new one */
 			if (Surface.doesKeyExist(key) == false)
@@ -365,7 +369,7 @@ int main(int argc, char *argv[])
 	//outputFile.open(calc + "_" + std::to_string(I) + "_" + "LD.txt", std::ios::out | std::ios::trunc);
 	//Surface.SavePointAver(outputFile);											//Calc the average and print it
 
-	outputFile.open(calc + "_" + std::to_string(I) + "_" + "LD.txt", std::ios::out | std::ios::trunc);
+	outputFile.open(calc + "_" + std::to_string(I) + "_" + std::to_string(direction) + "_" + "LD.txt", std::ios::out | std::ios::trunc);
 	Surface.SavePointAver(outputFile);
 	outputFile.close();
 

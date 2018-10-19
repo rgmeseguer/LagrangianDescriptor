@@ -4,9 +4,9 @@
 #include <iomanip>			// std::setprecision
 #include <fstream>			// std::ofstream
 
-#include "..\LagrangianDescriptor\utilities.h"
-#include "..\LagrangianDescriptor\Oscillator.h"
-#include "..\LagrangianDescriptor\Dynamics.h"
+#include "../LagrangianDescriptor/utilities.h"
+#include "../LagrangianDescriptor/Oscillator.h"
+#include "../LagrangianDescriptor/Dynamics.h"
 
 utilities ut;
 
@@ -58,13 +58,18 @@ int main(int argc, char *argv[])
 
 #pragma endregion
 
+#pragma region System Initial Conditions
+
 	/* Initiate the Oscillator */
 	Oscillator Osc({ 321.904484,-995.713452,1118.689573,-537.856726,92.976121,1.0,1.0,0.01 },	/* Coefficients from the oscillator */\
 	{ 1., bathMass },																			/* Mass Values */\
 	DOS_V, DOS_G);																				/* Potential and Gradient Functions */
 
-	
+	std::vector<double> R0 = { 1.36561 ,2.161769 };					// Initial Position
+	double Energy = 3.691966889;									// Energy of the system
+	double timeStep = 1.e-3;										// Set the Time Step/Precision of the Dynamic
 
+#pragma endregion
 
 	return 0;
 }
