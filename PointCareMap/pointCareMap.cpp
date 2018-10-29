@@ -3,10 +3,11 @@
 #include <sstream>			// std::stringstream
 #include <iomanip>			// std::setprecision
 #include <fstream>			// std::ofstream
+#include <ios>
 
-#include "../LagrangianDescriptor/utilities.h"
-#include "../LagrangianDescriptor/Oscillator.h"
-#include "../LagrangianDescriptor/Dynamics.h"
+#include "..\LagrangianDescriptor\utilities.h"
+#include "..\LagrangianDescriptor\Oscillator.h"
+#include "..\LagrangianDescriptor\Dynamics.h"
 
 utilities ut;
 
