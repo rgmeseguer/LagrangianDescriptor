@@ -44,6 +44,7 @@ void programUsage()
 	std::cout << "Program Usage" << std::endl;
 	std::cout << "LagD_Trj.out [tau] [bathMass] [TrjTime > (2xtau+1)] [Trj Number] [Direction {-1,1}] [[Crossing Point]]" << std::endl;
 }
+
 int main(int argc, char *argv[])
 {
 
@@ -118,7 +119,7 @@ int main(int argc, char *argv[])
 
 	srand(time(NULL));												// Initialize the random seed
 
-	std::vector<double> R0 = { 1.36561 ,2.161769 };					// Initial Position
+	std::vector<double> R0 = { 1.55 ,2.28 };						// Initial Position
 	double Energy = 3.691966889;									// Energy of the system
 	double timeStep = 1.e-3 ;										// Set the Time Step/Precision of the Dynamic multiply by the direction
 
@@ -164,7 +165,7 @@ int main(int argc, char *argv[])
 	
 	/* Create the surface of the where the LD values will be saved */
 #pragma region Surface Variables
-	LDSurfaceCreator Surface(selecSaving);							// Surface creator with selective saving false
+	LDSurfaceCreator Surface(selecSaving);							// Surface creator with selective saving
 	std::vector<std::vector<std::string>> openPoints;				// Tracker of the points at which the LD forward is beig calculated	
 	std::vector<std::string> previousPoint(Oscf._size * 2, " ");	// Variable to keep the two points where the foward trajectory crosses zero
 
@@ -200,8 +201,7 @@ int main(int argc, char *argv[])
 	 bath then save that point too */
 	if (Surface.selectiveSaving)
 	{
-		//Surface.savingPointAdd(zeroPoint);							// Just remember the first point does not have a pair because you don't need to interpolate is already zero
-		Dynf.doesItCross(Oscf.calcMomenta()[1], crossPoint);			// Call the function once to get the previous value saved
+		Dynf.doesItCross(Oscf.calcMomenta()[1], crossPoint);		// Call the function once to get the previous value saved
 	}
 
 #pragma endregion
