@@ -119,7 +119,7 @@ int main(int argc, char *argv[])
 
 	srand(time(NULL));												// Initialize the random seed
 
-	std::vector<double> R0 = { 1.55 ,2.28 };						// Initial Position
+	std::vector<double> R0 = { 1.55 ,2.26 };						// Initial Position
 	double Energy = 3.691966889;									// Energy of the system
 	double timeStep = 1.e-3 ;										// Set the Time Step/Precision of the Dynamic multiply by the direction
 
