@@ -154,10 +154,11 @@ int main(int argc, char *argv[])
 #if KEY_DETERM==0													
 	double beta = 4.;												// Effective temperature
 	double gamma = 5.;												// Disipation factor
-	Dyn.setLangevin(Osc.mu.back(), beta, gamma);
-
-	long T = time(0);												// Seed for the random 
-	std::vector<double> gasdev = ut.box_muller(Dyn.nstep, &T);		// Gas deviation
+	Dynf.setLangevin(Oscf._redMass.back(), beta, gamma);
+	Dynb.setLangevin(Oscb._redMass.back(), beta, gamma);
+	
+	long T = time(0);														// Seed for the random 
+	std::vector<double> gasdev = ut.box_muller(Dynf._numberStep, &T);		// Gas deviation
 	double rtherm;
 #endif
 

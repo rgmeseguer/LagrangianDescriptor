@@ -86,12 +86,12 @@
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PreprocessorDefinitions>KEY_DETERM=1;KEY_M0=0;KEY_MF=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>KEY_DETERM=0;KEY_M0=0;KEY_MF=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PreprocessorDefinitions>KEY_DETERM=1;KEY_M0=0;KEY_MF=1;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>KEY_DETERM=0;KEY_M0=0;KEY_MF=1;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Optimization>MaxSpeed</Optimization>
       <UnrollLoops>true</UnrollLoops>
       <LinkTimeOptimization>true</LinkTimeOptimization>

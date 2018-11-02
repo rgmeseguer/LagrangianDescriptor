@@ -18,7 +18,6 @@ class Dynamics
 
 	//Langevin Variables
 	double A, B;							//Temporary variables used for Langevin calculation
-	double sigma;							//
 
 	double _previousValue;					// Tool variable to keep track of one of the DoF to check if it crosses zero
 
@@ -30,6 +29,7 @@ public:
 	//Langevin Variables
 	std::vector<double> _gasDeviation;
 	double _kineticBath;
+	double sigma;							//
 
 	Dynamics();
 	
@@ -134,6 +134,7 @@ void Dynamics::DynamicStep(Oscillator & osc, double rtherm)
 	//Bath has to be always the last defined degree of freedom
 	osc._acceleration.back() += B * _timeStep*(osc._velocity.back() + osc._acceleration.back() * _halfTimeStep + rtherm / (2 * osc._redMass.back()));
 	osc.calcAcceleration();
+	osc._position.back() += _timeStep * (osc._velocity.back() + osc._acceleration.back() * _halfTimeStep);
 
 	//Set the new Velocity
 	for (int unsigned i = 0; i < osc._size - 1; i++)
