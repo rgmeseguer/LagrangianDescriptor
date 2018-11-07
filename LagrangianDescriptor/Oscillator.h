@@ -93,7 +93,7 @@ void Oscillator::setInitP(std::vector<double> coord, bool Energy)
 {
 	_position = coord;
 	_gradient = gradientFunction(_coeff, _position);//the gradient
-	for (size_t i = 0; i < _size; i++)//the acceleration
+	for (auto i = 0; i < _size; i++)//the acceleration
 	{
 		_acceleration[i] = -_gradient[i] / _redMass[i];
 	}
@@ -114,7 +114,7 @@ void Oscillator::setInitV(std::vector<double> veloc, bool Energy)
 	if (Energy)
 	{
 		//also set the kinetic energy
-		for (size_t i = 0; i < _size; i++)
+		for (auto i = 0; i < _size; i++)
 		{
 			_kinEnergy[i] = _redMass[i] / 2 * (_velocity[i] * _velocity[i]);
 		}
@@ -144,7 +144,7 @@ void Oscillator::calcAcceleration()
 std::vector<double> Oscillator::calcMomenta()
 {
 	std::vector<double> mom(_size, 0.);
-	for (size_t i = 0; i < _size; i++)
+	for (auto i = 0; i < _size; i++)
 	{
 		mom[i] = _velocity[i] * _redMass[i];
 	}
@@ -159,7 +159,7 @@ double Oscillator::calcTotalEnergy()
 	double totalKinEnergy = 0.;
 	_potEnergy = potentialFunction(_coeff, _position);					// Calculates the potential energy
 
-	for (size_t i = 0; i < _size; i++)
+	for (auto i = 0; i < _size; i++)
 	{
 		_kinEnergy[i] = _redMass[i] / 2 * (_velocity[i] * _velocity[i]); // and the kinetic energy
 		totalKinEnergy += _kinEnergy[i];
@@ -235,7 +235,7 @@ void Oscillator::setInitialVel_NVE(double Energy, int I, int scale)
 	_velocity[1] = sqrt(2 * kinBath / _redMass[1])* bathdir;
 
 	/* Also set the kinetic energy */
-	for (size_t i = 0; i < _size; i++)
+	for (auto i = 0; i < _size; i++)
 	{
 		_kinEnergy[i] = _redMass[i] / 2 * (_velocity[i] * _velocity[i]);
 	}
@@ -256,7 +256,7 @@ void Oscillator::findBathPos_NVE(double Energy)
 
 #pragma region Initial Conditions
 	//Set the initial Velocities to 0
-	for (size_t i = 0; i < _size; i++) { _velocity[i] = 0.; }
+	for (auto vel : _velocity) { vel = 0.; }
 	setInitV(_velocity, true);
 	//Set the initial 3 points to search for the root
 	postition0 = 3.0;//Beggining

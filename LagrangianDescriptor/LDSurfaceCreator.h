@@ -186,12 +186,12 @@ void LDSurfaceCreator::SavePointAver(std::ofstream &sfile)
 ///</surface>
 std::vector<std::string> LDSurfaceCreator::keyWrite(std::vector<double> position, std::vector<double> momenta)
 {
-	int size = position.size();
+	auto size = position.size();
 	std::stringstream stream;													//Temporary string
 	std::vector<std::string> stringCoord(size, " "), stringMoment(size, " ");	// Strings needed for the key of the point
 	std::vector<std::string> key(size * 2, " ");								// The value to return
 
-	for (size_t i = 0; i < size; i++)
+	for (auto i = 0; i < size; i++)
 	{
 
 		/*Print the new key in correct string format*/

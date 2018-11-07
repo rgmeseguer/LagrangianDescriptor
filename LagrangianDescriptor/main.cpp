@@ -119,7 +119,7 @@ int main(int argc, char *argv[])
 
 	srand(time(NULL));												// Initialize the random seed
 
-	std::vector<double> R0 = { 1.4 ,2.18 };							// Initial Position
+	std::vector<double> R0 = { 1.30 ,2.2 };							// Initial Position
 	double Energy = 3.691966889;									// Energy of the system
 	double timeStep = 1.e-3 ;										// Set the Time Step/Precision of the Dynamic multiply by the direction
 
@@ -134,9 +134,9 @@ int main(int argc, char *argv[])
 	/* Initialize the Oscillators */
 #pragma region Oscillator Variables
 	Oscf.setInitP(R0, true);										// Initiate at the shadle point
-	Oscf.setInitialVel_NVE(Energy, I, 4);							// Set initial Random Velocities to keep energy
+	Oscf.setInitialVel_NVE(Energy, I, 2);							// Set initial Random Velocities to keep energy
 	Oscb.setInitP(R0, true);										// Initiate at the shadle point
-	Oscb.setInitialVel_NVE(Energy, I, 4);							// Set initial Random Velocities to keep energy
+	Oscb.setInitialVel_NVE(Energy, I, 2);							// Set initial Random Velocities to keep energy
 
 #pragma endregion
 
